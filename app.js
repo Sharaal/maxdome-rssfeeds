@@ -7,7 +7,7 @@ var config = {
     libraries: {
         nodejs: {},
         npm: {
-            Crawler: 'Crawler',
+            Crawler: 'crawler',
             express: 'express',
             swig: 'swig'
         }
