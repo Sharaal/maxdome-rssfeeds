@@ -1,0 +1,15 @@
+{
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "dragonnodejs": "3.*",
+        "express": "*",
+        "crawler": "*",
+        "swig": "*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dragonprojects/maxdome-new-movies.git"
+    }
+}
