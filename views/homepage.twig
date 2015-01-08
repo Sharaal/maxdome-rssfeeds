@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head lang="de">
+        <meta charset="UTF-8">
+        <title>{{ title }}</title>
+        {% for feed in feeds %}
+        <link rel="alternate"
+              type="application/rss+xml"
+              title="{{ feed.title }}"
+              href="{{ feed.href }}" />
+        {% endfor %}
+    </head>
+    <body>
+        <p>{{ title }}</p>
+        <ul>
+            {% for feed in feeds %}
+            <li><a href="{{ feed.href }}">{{ feed.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

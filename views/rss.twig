@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>{{ channel.title }}</title>
+        <link>{{ channel.link }}</link>
+        <description>{{ channel.description }}</description>
+        <language>{{ channel.language }}</language>
+        <copyright>{{ channel.copyright }}</copyright>
+        <pubDate>{{ channel.pubDate }}</pubDate>
+        {% if channel.image %}
+        <image>
+            <url>{{ channel.image.url }}</url>
+            <title>{{ channel.image.title }}</title>
+            <link>{{ channel.image.link }}</link>
+        </image>
+        {% endif %}
+        {% for item in items %}
+        <item>
+            <title>{{ item.title }}</title>
+            <description>{{ item.description }}</description>
+            <link>{{ item.link }}</link>
+            <author>{{ item.author }}</author>
+            <guid>{{ item.guid }}</guid>
+            <pubDate>{{ item.pubDate }}</pubDate>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>

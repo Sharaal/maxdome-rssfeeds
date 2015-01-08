@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Service to crawl an url
+ * Service with the wrapper for the crawler library to crawl an url
  * @example
     crawler: {}
  */
