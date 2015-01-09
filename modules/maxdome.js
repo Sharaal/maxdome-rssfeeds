@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Service with the parser to crawl the new movies of maxdome
+ * Service with the parser to crawl the new assets of a maxdome S4 catalogue page
  * @example
     maxdome: {}
  */

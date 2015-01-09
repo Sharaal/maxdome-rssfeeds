@@ -1,6 +1,7 @@
 {
     "scripts": {
-        "start": "node app.js"
+        "start": "node app.js",
+        "postinstall": "npm install -g bower && bower install"
     },
     "dependencies": {
         "dragonnodejs": "3.*",

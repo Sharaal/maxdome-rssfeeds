@@ -1,21 +1,41 @@
+{% set title = 'Maxdome' %}
 <!DOCTYPE html>
-<html>
-    <head lang="de">
-        <meta charset="UTF-8">
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ title }}</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/{{ bower.bootstrap }}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/jumbotron-narrow.css" rel="stylesheet">
         {% for feed in feeds %}
-        <link rel="alternate"
-              type="application/rss+xml"
-              title="{{ feed.title }}"
-              href="{{ feed.href }}" />
+        <link rel="alternate" type="application/rss+xml" title="{{ feed.title }}" href="{{ feed.link }}" />
         {% endfor %}
     </head>
     <body>
-        <p>{{ title }}</p>
-        <ul>
-            {% for feed in feeds %}
-            <li><a href="{{ feed.href }}">{{ feed.title }}</a></li>
-            {% endfor %}
-        </ul>
+        <div class="container">
+            <div class="header">
+                <h2><a href="http://www.maxdome.de/">{{ title }}</a></h2>
+            </div>
+            <h3>RSS Feeds</h3>
+            <div class="marketing">
+                {% for feed in feeds %}
+                    <h4><a href="{{ feed.link }}">{{ feed.title }}</a></h4>
+                    <p>{{ feed.description }}</p>
+                {% endfor %}
+            </div>
+            <h3>Nützliche Links</h3>
+            <ul>
+                <li><a href="http://feedly.com/">Feedly</a> (RSS Feed Reader für Browser und Mobile)</li>
+                <li><a href="http://blog.maxdome.de/">Maxdome Blog</a> (neue Informationen rund um das Angebot auf Maxdome)</li>
+                <li><a href="http://www.facebook.com/maxdome">Facebook Maxdome</a> (Community Seite von Maxdome auf Facebook)</li>
+            </ul>
+            <br>
+            <footer class="footer">
+                <p>&copy; <a href="http://dragonprojects.de">DragonProjects</a> 2015, <a href="http://github.com/dragonprojects/maxdome-rssfeeds">GitHub</a></p>
+            </footer>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/{{ bower.jquery }}/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/{{ bower.bootstrap }}/js/bootstrap.min.js"></script>
     </body>
 </html>

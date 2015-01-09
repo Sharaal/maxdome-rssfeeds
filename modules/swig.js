@@ -1,7 +1,7 @@
 "use strict";
 
 /*
- * Swig express integration
+ * Swig express integration to bind ".twig" views to the swig renderer
  * @example
     swig: { views: __dirname + '/views/' }
  */

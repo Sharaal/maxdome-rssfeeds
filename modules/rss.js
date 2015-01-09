@@ -9,12 +9,11 @@
                 route: '',
                 channel: {
                     title: '',
+                    description: '',
                     link: ''
                 },
                 parser: {
-                    service: '',
-                    crawlerurl: '',
-                    asseturl: ''
+                    service: ''
                 },
                 cache: 60
             }

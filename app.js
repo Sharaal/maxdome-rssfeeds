@@ -16,26 +16,46 @@ var config = {
     modules: {
         npm: {},
         directory: {
-            app: { port: process.env.PORT },
+            app: {
+                path: __dirname + '/web/',
+                port: process.env.PORT
+            },
+            bower: {
+                libraries: ['jquery', 'bootstrap'],
+                path: __dirname + '/bower_components/'
+            },
             swig: { views: __dirname + '/views/' },
             homepage: {
-                title: 'Maxdome RSS Feeds',
                 feeds: [
                     {
-                        title: 'Maxdome Package New Series',
-                        href: '/package/new-series'
+                        title: 'Maxdome Blog',
+                        description: 'RSS Feed des Maxdome Blogs mit den News aus der Welt der Filme',
+                        link: 'http://blog.maxdome.de/feed'
                     },
                     {
-                        title: 'Maxdome Package New Movies',
-                        href: '/package/new-movies'
+                        title: 'Maxdome News Blog',
+                        description: 'RSS Feed des Maxdome Blogs mit den News der Firma Maxdome',
+                        link: 'http://blog.maxdome.de/maxdome-news/feed'
                     },
                     {
-                        title: 'Maxdome Store New Series',
-                        href: '/store/new-series'
+                        title: 'Serien im Paket',
+                        description: 'RSS Feed mit den neuen Serien im Monatspaket',
+                        link: '/package/new-series'
                     },
                     {
-                        title: 'Maxdome Store New Movies',
-                        href: '/store/new-movies'
+                        title: 'Filme im Paket',
+                        description: 'RSS Feed mit den neuen Filmen im Monatspaket',
+                        link: '/package/new-movies'
+                    },
+                    {
+                        title: 'Serien im Store',
+                        description: 'RSS Feed mit den neuen Serien im Store',
+                        link: '/store/new-series'
+                    },
+                    {
+                        title: 'Filme im Store',
+                        description: 'RSS Feed mit den neuen Filmen im Store',
+                        link: '/store/new-movies'
                     }
                 ]
             },
@@ -46,7 +66,8 @@ var config = {
                     {
                         route: '/package/new-series',
                         channel: {
-                            title: 'Maxdome Package New Series',
+                            title: 'Serien im Paket',
+                            description: 'RSS Feed mit den neuen Serien im Monatspaket',
                             link: 'http://www.maxdome.de/serie/neu-bei-maxdome'
                         },
                         parser: {
@@ -59,7 +80,8 @@ var config = {
                     {
                         route: '/package/new-movies',
                         channel: {
-                            title: 'Maxdome Package New Movies',
+                            title: 'Filme im Paket',
+                            description: 'RSS Feed mit den neuen Filmen im Monatspaket',
                             link: 'http://www.maxdome.de/spielfilm/neu-bei-maxdome'
                         },
                         parser: {
@@ -72,7 +94,8 @@ var config = {
                     {
                         route: '/store/new-series',
                         channel: {
-                            title: 'Maxdome Store New Series',
+                            title: 'Serien im Store',
+                            description: 'RSS Feed mit den neuen Serien im Store',
                             link: 'http://store.maxdome.de/serie/neu-bei-maxdome'
                         },
                         parser: {
@@ -85,7 +108,8 @@ var config = {
                     {
                         route: '/store/new-movies',
                         channel: {
-                            title: 'Maxdome Store New Movies',
+                            title: 'Filme im Store',
+                            description: 'RSS Feed mit den neuen Filmen im Store',
                             link: 'http://store.maxdome.de/spielfilm/neu-bei-maxdome'
                         },
                         parser: {

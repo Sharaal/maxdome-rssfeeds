@@ -1,0 +1,7 @@
+{
+    "name": "maxdome-rssfeeds",
+    "dependencies": {
+        "jquery": "*",
+        "bootstrap": "*"
+    }
+}
