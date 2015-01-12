@@ -6,7 +6,10 @@ var config = {
     npm: __dirname + '/node_modules/',
     libraries: {
         nodejs: {},
-        npm: { Crawler: 'crawler' }
+        npm: {
+            async: 'async',
+            Crawler: 'crawler'
+        }
     },
     directory: __dirname + '/modules/',
     modules: {

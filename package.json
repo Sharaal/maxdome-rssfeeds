@@ -6,6 +6,7 @@
     "dependencies": {
         "dragonnodejs": "3.*",
         "dragonnodejs-webserver": "4.*",
+        "async": "*",
         "crawler": "*"
     },
     "repository": {
