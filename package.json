@@ -5,9 +5,8 @@
     },
     "dependencies": {
         "dragonnodejs": "3.*",
-        "express": "*",
-        "crawler": "*",
-        "swig": "*"
+        "dragonnodejs-webserver": "4.*",
+        "crawler": "*"
     },
     "repository": {
         "type": "git",

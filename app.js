@@ -6,25 +6,29 @@ var config = {
     npm: __dirname + '/node_modules/',
     libraries: {
         nodejs: {},
-        npm: {
-            Crawler: 'crawler',
-            express: 'express',
-            swig: 'swig'
-        }
+        npm: { Crawler: 'crawler' }
     },
     directory: __dirname + '/modules/',
     modules: {
-        npm: {},
+        npm: {
+            'dragonnodejs-webserver': {
+                app: { port: process.env.PORT },
+                bower: {
+                    libraries: ['jquery', 'bootstrap'],
+                    path: __dirname + '/bower_components/'
+                },
+                header: {
+                    'X-UA-Compatible': 'IE=edge,chrome=1',
+                    'X-Frame-Options': 'DENY',
+                    'X-XSS-Protection': '1; mode=block',
+                    'X-Powered-By': null
+                },
+                static: { path: __dirname + '/web/' },
+                swig: { views: __dirname + '/views/' }
+            }
+        },
         directory: {
-            app: {
-                path: __dirname + '/web/',
-                port: process.env.PORT
-            },
-            bower: {
-                libraries: ['jquery', 'bootstrap'],
-                path: __dirname + '/bower_components/'
-            },
-            swig: { views: __dirname + '/views/' },
+            crawler: {},
             homepage: {
                 feeds: [
                     {
@@ -59,7 +63,6 @@ var config = {
                     }
                 ]
             },
-            crawler: {},
             maxdome: {},
             rss: {
                 feeds: [

@@ -7,10 +7,7 @@
  */
 
 module.exports = function (config, libraries, services) {
-    var app = services.app,
-        bower = services.bower;
-
-    config.bower = bower;
+    var app = services.app;
 
     app.get('/', function (req, res) {
         res.render('homepage', config);
