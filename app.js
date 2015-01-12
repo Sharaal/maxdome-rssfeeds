@@ -37,7 +37,10 @@ var config = {
         },
         directory: {
             crawler: {},
-            maxdome: {},
+            maxdome: {
+                cache: true,
+                cachelength: 200
+            },
             rss: {
                 feeds: [
                     {

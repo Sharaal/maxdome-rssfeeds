@@ -3,7 +3,10 @@
 /**
  * Service with the parser to crawl the new assets of a maxdome S4 catalogue page
  * @example
-    maxdome: {}
+    maxdome: {
+        cache: true,
+        cachelength: 200
+    }
  */
 
 module.exports = function (config, libraries, services) {
@@ -30,7 +33,14 @@ module.exports = function (config, libraries, services) {
                     parallels.push(function (callback) {
                         crawler(item.link, function (err, $) {
                             item.description = $('meta[property="og:description"]').attr('content');
-                            cache[item.guid] = item.description;
+                            if (config.cache) {
+                                cache[item.guid] = item.description;
+                                if (config.cachelength) {
+                                    while (Object.keys(cache).length > config.cachelength) {
+                                        delete cache[Object.keys(cache)[0]];
+                                    }
+                                }
+                            }
                             callback();
                         });
                     });
