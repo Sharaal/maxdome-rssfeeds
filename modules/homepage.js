@@ -7,9 +7,17 @@
  */
 
 module.exports = function (config, libraries, services) {
-    var app = services.app;
+    var app = services.app,
+        language = services.language;
 
-    app.get('/', function (req, res) {
-        res.render('homepage', config);
-    });
+    app.get(
+        '/:language?',
+        function (req, res, next) {
+            language(res, req.params.language);
+            next();
+        },
+        function (req, res) {
+            res.render('homepage', config);
+        }
+    );
 };

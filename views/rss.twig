@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>{{ channel.title }}</title>
-        <description>{{ channel.description }}</description>
+        <title>{{ language.feeds[channel.name].title }}</title>
+        <description>{{ language.feeds[channel.name].description }}</description>
         <link>{{ channel.link }}</link>
-        <language>{{ channel.language }}</language>
+        <language>{{ language.language }}</language>
         <copyright>{{ channel.copyright }}</copyright>
         <pubDate>{{ channel.pubDate }}</pubDate>
         {% if channel.image %}

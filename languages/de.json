@@ -1,0 +1,30 @@
+{
+    "language": "de",
+    "title": "Maxdome RSS Feeds",
+    "feeds": {
+        "maxdome-blog" : {
+            "title": "Maxdome Blog",
+            "description": "RSS Feed des Maxdome Blogs mit den News aus der Welt der Filme"
+        },
+        "maxdome-news-blog" : {
+            "title": "Maxdome News Blog",
+            "description": "RSS Feed des Maxdome Blogs mit den News der Firma Maxdome"
+        },
+        "package-new-series" : {
+            "title": "Neue Serien im Paket",
+            "description": "RSS Feed mit den neuen Serien im Monatspaket"
+        },
+        "package-new-movies" : {
+            "title": "Neue Filme im Paket",
+            "description": "RSS Feed mit den neuen Filmen im Monatspaket"
+        },
+        "store-new-series" : {
+            "title": "Neue Serien im Store",
+            "description": "RSS Feed mit den neuen Serien im Store"
+        },
+        "store-new-movies" : {
+            "title": "Neue Filme im Store",
+            "description": "RSS Feed mit den neuen Filmen im Store"
+        }
+    }
+}

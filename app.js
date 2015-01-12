@@ -23,54 +23,24 @@ var config = {
                     'X-XSS-Protection': '1; mode=block',
                     'X-Powered-By': null
                 },
+                language: {
+                    default: 'en',
+                    languages: ['de', 'en'],
+                    path: __dirname + '/languages/'
+                },
                 static: { path: __dirname + '/web/' },
                 swig: { views: __dirname + '/views/' }
             }
         },
         directory: {
             crawler: {},
-            homepage: {
-                feeds: [
-                    {
-                        title: 'Maxdome Blog',
-                        description: 'RSS Feed des Maxdome Blogs mit den News aus der Welt der Filme',
-                        link: 'http://blog.maxdome.de/feed'
-                    },
-                    {
-                        title: 'Maxdome News Blog',
-                        description: 'RSS Feed des Maxdome Blogs mit den News der Firma Maxdome',
-                        link: 'http://blog.maxdome.de/maxdome-news/feed'
-                    },
-                    {
-                        title: 'Serien im Paket',
-                        description: 'RSS Feed mit den neuen Serien im Monatspaket',
-                        link: '/package/new-series'
-                    },
-                    {
-                        title: 'Filme im Paket',
-                        description: 'RSS Feed mit den neuen Filmen im Monatspaket',
-                        link: '/package/new-movies'
-                    },
-                    {
-                        title: 'Serien im Store',
-                        description: 'RSS Feed mit den neuen Serien im Store',
-                        link: '/store/new-series'
-                    },
-                    {
-                        title: 'Filme im Store',
-                        description: 'RSS Feed mit den neuen Filmen im Store',
-                        link: '/store/new-movies'
-                    }
-                ]
-            },
             maxdome: {},
             rss: {
                 feeds: [
                     {
                         route: '/package/new-series',
                         channel: {
-                            title: 'Serien im Paket',
-                            description: 'RSS Feed mit den neuen Serien im Monatspaket',
+                            name: 'package-new-series',
                             link: 'http://www.maxdome.de/serie/neu-bei-maxdome'
                         },
                         parser: {
@@ -83,8 +53,7 @@ var config = {
                     {
                         route: '/package/new-movies',
                         channel: {
-                            title: 'Filme im Paket',
-                            description: 'RSS Feed mit den neuen Filmen im Monatspaket',
+                            name: 'package-new-movies',
                             link: 'http://www.maxdome.de/spielfilm/neu-bei-maxdome'
                         },
                         parser: {
@@ -97,8 +66,7 @@ var config = {
                     {
                         route: '/store/new-series',
                         channel: {
-                            title: 'Serien im Store',
-                            description: 'RSS Feed mit den neuen Serien im Store',
+                            name: 'store-new-series',
                             link: 'http://store.maxdome.de/serie/neu-bei-maxdome'
                         },
                         parser: {
@@ -111,8 +79,7 @@ var config = {
                     {
                         route: '/store/new-movies',
                         channel: {
-                            title: 'Filme im Store',
-                            description: 'RSS Feed mit den neuen Filmen im Store',
+                            name: 'store-new-movies',
                             link: 'http://store.maxdome.de/spielfilm/neu-bei-maxdome'
                         },
                         parser: {
@@ -123,6 +90,16 @@ var config = {
                         cache: 60
                     }
                 ]
+            },
+            homepage: {
+                feeds: {
+                    'maxdome-blog': 'http://blog.maxdome.de/feed',
+                    'maxdome-news-blog': 'http://blog.maxdome.de/maxdome-news/feed',
+                    'package-new-series': '/package/new-series/%language%',
+                    'package-new-movies': '/package/new-movies/%language%',
+                    'store-new-series': '/store/new-series/%language%',
+                    'store-new-movies': '/store/new-movies/%language%'
+                }
             }
         }
     }
