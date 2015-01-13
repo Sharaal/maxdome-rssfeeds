@@ -32,7 +32,7 @@ module.exports = function (config, libraries, services) {
             app.get(
                 feed.route + '/:language?',
                 function (req, res, next) {
-                    language(res, req.params.language);
+                    language(req.params.language, res);
                     next();
                 },
                 function (req, res) {
