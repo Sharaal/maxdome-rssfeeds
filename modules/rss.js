@@ -8,8 +8,7 @@
             {
                 route: '',
                 channel: {
-                    title: '',
-                    description: '',
+                    name: '',
                     link: ''
                 },
                 parser: {
