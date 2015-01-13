@@ -45,7 +45,7 @@ module.exports = function (config, libraries, services) {
                         } else {
                             services[feed.parser.service](feed.parser, function (items) {
                                 res.render('rss', { channel: feed.channel, items: items });
-                                cache = { _id: feed.route, date: new Date(), items:items };
+                                cache = { _id: feed.route, date: new Date(), items: items };
                                 feeds.save(cache);
                             });
                         }
