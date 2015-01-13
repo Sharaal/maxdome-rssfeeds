@@ -27,16 +27,16 @@ module.exports = function (config, libraries, services) {
                 };
                 items.push(item);
                 parallels.push(function (callback) {
-                    descriptions.findById(item.guid, function (err, description) {
-                        if (description) {
-                            item.description = description.description;
+                    descriptions.findById(item.guid, function (err, cache) {
+                        if (cache) {
+                            item.description = cache.description;
                             callback();
                         } else {
                             crawler(item.link, function (err, $) {
                                 item.description = $('meta[property="og:description"]').attr('content');
                                 callback();
-                                var description = { _id: item.guid, description: item.description };
-                                descriptions.insert(description);
+                                cache = { _id: item.guid, description: item.description };
+                                descriptions.insert(cache);
                             });
                         }
                     });

@@ -23,9 +23,10 @@
 
 module.exports = function (config, libraries, services) {
     var app = services.app,
+        collection = services.collection,
         language = services.language;
 
-    var caches = {};
+    var feeds = collection('feeds');
 
     for (var key in config.feeds) {
         (function (feed) {
@@ -36,25 +37,19 @@ module.exports = function (config, libraries, services) {
                     next();
                 },
                 function (req, res) {
-                    if (feed.cache) {
-                        caches[feed.route] = caches[feed.route] || { time: null, items: null };
-                        var cache = caches[feed.route];
+                    feeds.findById(feed.route, function (err, cache) {
                         var compare = new Date();
                         compare.setMinutes(compare.getMinutes() - feed.cache);
-                        if (cache.time == null || cache.time < compare) {
-                            services[feed.parser.service](feed.parser, function (items) {
-                                cache.time = new Date();
-                                cache.items = items;
-                                res.render('rss', { channel: feed.channel, items: items });
-                            });
-                        } else {
+                        if (cache && cache.date > compare) {
                             res.render('rss', { channel: feed.channel, items: cache.items });
+                        } else {
+                            services[feed.parser.service](feed.parser, function (items) {
+                                res.render('rss', { channel: feed.channel, items: items });
+                                cache = { _id: feed.route, date: new Date(), items:items };
+                                feeds.save(cache);
+                            });
                         }
-                    } else {
-                        services[feed.parser.service](feed.parser, function (items) {
-                            res.render('rss', { channel: feed.channel, items: items });
-                        });
-                    }
+                    });
                 }
             );
         })(config.feeds[key]);
