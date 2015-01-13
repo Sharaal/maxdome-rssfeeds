@@ -36,7 +36,7 @@ module.exports = function (config, libraries, services) {
                                 item.description = $('meta[property="og:description"]').attr('content');
                                 callback();
                                 cache = { _id: item.guid, description: item.description };
-                                descriptions.insert(cache);
+                                descriptions.insert(cache, function () {});
                             });
                         }
                     });
