@@ -3,17 +3,15 @@
 /**
  * Service with the parser to crawl the new assets of a maxdome S4 catalogue page
  * @example
-    maxdome: {
-        cache: true,
-        cachelength: 200
-    }
+    maxdome: {}
  */
 
 module.exports = function (config, libraries, services) {
     var async = libraries.async,
+        collection = services.collection,
         crawler = services.crawler;
 
-    var cache = {};
+    var descriptions = collection('descriptions');
 
     var maxdome = function (parser, callback) {
         crawler(parser.crawlerurl, function (err, $) {
@@ -27,25 +25,22 @@ module.exports = function (config, libraries, services) {
                     link: parser.asseturl + a.attr('href'),
                     guid: div.data('asset-id')
                 };
-                if (cache[item.guid]) {
-                    item.description = cache[item.guid];
-                } else {
-                    parallels.push(function (callback) {
-                        crawler(item.link, function (err, $) {
-                            item.description = $('meta[property="og:description"]').attr('content');
-                            if (config.cache) {
-                                cache[item.guid] = item.description;
-                                if (config.cachelength) {
-                                    while (Object.keys(cache).length > config.cachelength) {
-                                        delete cache[Object.keys(cache)[0]];
-                                    }
-                                }
-                            }
-                            callback();
-                        });
-                    });
-                }
                 items.push(item);
+                parallels.push(function (callback) {
+                    descriptions.findById(item.guid, function (err, description) {
+                        if (description) {
+                            item.description = description.description;
+                            callback();
+                        } else {
+                            crawler(item.link, function (err, $) {
+                                item.description = $('meta[property="og:description"]').attr('content');
+                                callback();
+                                var description = { _id: item.guid, description: item.description };
+                                descriptions.insert(description);
+                            });
+                        }
+                    });
+                });
             });
             async.parallel(parallels, function () {
                 callback(items);

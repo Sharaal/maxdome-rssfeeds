@@ -14,6 +14,13 @@ var config = {
     directory: __dirname + '/modules/',
     modules: {
         npm: {
+            'dragonnodejs-mongodb': {
+                db: {
+                    uri: process.env.MONGOLAB_URI || 'mongodb://127.0.0.1/app?auto_reconnect=true',
+                    options: { safe: true }
+                },
+                collection: {}
+            },
             'dragonnodejs-webserver': {
                 app: { port: process.env.PORT },
                 bower: {
@@ -37,10 +44,7 @@ var config = {
         },
         directory: {
             crawler: {},
-            maxdome: {
-                cache: true,
-                cachelength: 200
-            },
+            maxdome: {},
             rss: {
                 feeds: [
                     {
