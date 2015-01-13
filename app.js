@@ -99,12 +99,12 @@ var config = {
             },
             homepage: {
                 feeds: {
-                    'maxdome-blog': 'http://blog.maxdome.de/feed',
-                    'maxdome-news-blog': 'http://blog.maxdome.de/maxdome-news/feed',
                     'package-new-series': '/package/new-series/%language%',
                     'package-new-movies': '/package/new-movies/%language%',
                     'store-new-series': '/store/new-series/%language%',
-                    'store-new-movies': '/store/new-movies/%language%'
+                    'store-new-movies': '/store/new-movies/%language%',
+                    'maxdome-blog': 'http://blog.maxdome.de/feed',
+                    'maxdome-news-blog': 'http://blog.maxdome.de/maxdome-news/feed'
                 }
             }
         }
