@@ -1,6 +1,7 @@
 {
     "language": "de",
     "title": "Maxdome RSS Feeds",
+    "description": "Anwendung um neue Serien und Filme von Maxdome Package und Store zu beziehen und RSS Feeds zu erstellen",
     "feeds": {
         "maxdome-blog" : {
             "title": "Maxdome Blog",

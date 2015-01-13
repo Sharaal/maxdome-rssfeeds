@@ -1,6 +1,7 @@
 {
     "language": "en",
     "title": "Maxdome RSS Feeds",
+    "description": "App to crawl new series and movies of maxdome package and store to generate rss feeds",
     "feeds": {
         "maxdome-blog" : {
             "title": "Maxdome Blog",
