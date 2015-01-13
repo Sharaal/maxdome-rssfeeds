@@ -18,6 +18,7 @@ App to crawl new series and movies of maxdome package and store to generate rss 
 * Register and/or login
 * Click "Add website" and insert "http://maxdome-rssfeeds.herokuapp.com/"
 * Select the RSS Feeds you will be up to date
-* Recommend:
-** Open the settings
-** In the "Look and Feel" section change "Transition" to "scroll" and "Default View" to "List"
+
+Recommend:
+* Open the settings
+* In the "Look and Feel" section change "Transition" to "scroll" and "Default View" to "List"
