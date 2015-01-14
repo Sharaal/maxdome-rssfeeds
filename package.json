@@ -5,7 +5,7 @@
     },
     "dependencies": {
         "dragonnodejs": "3.*",
-        "dragonnodejs-redis": "1.6.*",
+        "dragonnodejs-redis": "1.*",
         "dragonnodejs-webserver": "4.*",
         "async": "*",
         "crawler": "*"
