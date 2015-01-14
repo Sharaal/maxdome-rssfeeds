@@ -16,7 +16,6 @@ var config = {
         npm: {
             'dragonnodejs-redis': {
                 client: (function () {
-                    console.log(process.env.REDISCLOUD_URL);
                     if (process.env.REDISCLOUD_URL) {
                         return { uri: process.env.REDISCLOUD_URL };
                     }
