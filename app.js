@@ -104,6 +104,13 @@ var config = {
                 ]
             },
             homepage: {
+                app: (function () {
+                    var json = require(__dirname + '/package.json');
+                    return {
+                        name: json.name,
+                        version: json.version
+                    };
+                })(),
                 feeds: {
                     'package-new-series': '/package/new-series/%language%',
                     'package-new-movies': '/package/new-movies/%language%',
