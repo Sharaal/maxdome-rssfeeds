@@ -17,7 +17,7 @@ var config = {
             'dragonnodejs-redis': {
                 client: (function () {
                     if (process.env.REDISCLOUD_URL) {
-                        return { unix_socket: process.env.REDISCLOUD_URL };
+                        return { uri: process.env.REDISCLOUD_URL };
                     }
                     return {};
                 })(),
