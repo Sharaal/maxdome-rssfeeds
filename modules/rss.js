@@ -14,7 +14,7 @@
                 parser: {
                     service: ''
                 },
-                cache: 60
+                cache: 60 * 60
             }
         ]
     }
@@ -22,10 +22,8 @@
 
 module.exports = function (config, libraries, services) {
     var app = services.app,
-        collection = services.collection,
+        cache = services.cache,
         language = services.language;
-
-    var feeds = collection('feeds');
 
     for (var key in config.feeds) {
         (function (feed) {
@@ -36,19 +34,19 @@ module.exports = function (config, libraries, services) {
                     next();
                 },
                 function (req, res) {
-                    feeds.findById(feed.route, function (err, cache) {
-                        var compare = new Date();
-                        compare.setMinutes(compare.getMinutes() - feed.cache);
-                        if (cache && cache.date > compare) {
-                            res.render('rss', { channel: feed.channel, items: cache.items });
-                        } else {
+                    cache(
+                        'feed:' + feed.route,
+                        function (callback) {
                             services[feed.parser.service](feed.parser, function (items) {
-                                res.render('rss', { channel: feed.channel, items: items });
-                                cache = { _id: feed.route, date: new Date(), items: items };
-                                feeds.save(cache, function () {});
+                                var value = { items: items };
+                                callback(value);
                             });
-                        }
-                    });
+                        },
+                        function (value) {
+                            res.render('rss', { channel: feed.channel, items: value.items });
+                        },
+                        { expire: feed.cache }
+                    );
                 }
             );
         })(config.feeds[key]);

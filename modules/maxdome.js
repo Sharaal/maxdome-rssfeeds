@@ -8,10 +8,8 @@
 
 module.exports = function (config, libraries, services) {
     var async = libraries.async,
-        collection = services.collection,
+        cache = services.cache,
         crawler = services.crawler;
-
-    var descriptions = collection('descriptions');
 
     var maxdome = function (parser, callback) {
         crawler(parser.crawlerurl, function (err, $) {
@@ -27,19 +25,19 @@ module.exports = function (config, libraries, services) {
                 };
                 items.push(item);
                 parallels.push(function (callback) {
-                    descriptions.findById(item.guid, function (err, cache) {
-                        if (cache) {
-                            item.description = cache.description;
-                            callback();
-                        } else {
+                    cache(
+                        'item:' + item.guid,
+                        function (callback) {
                             crawler(item.link, function (err, $) {
-                                item.description = $('meta[property="og:description"]').attr('content');
-                                callback();
-                                cache = { _id: item.guid, description: item.description };
-                                descriptions.insert(cache, function () {});
+                                var value = { description: $('meta[property="og:description"]').attr('content') };
+                                callback(value);
                             });
+                        },
+                        function (value) {
+                            item.description = value.description;
+                            callback();
                         }
-                    });
+                    );
                 });
             });
             async.parallel(parallels, function () {

@@ -14,12 +14,14 @@ var config = {
     directory: __dirname + '/modules/',
     modules: {
         npm: {
-            'dragonnodejs-mongodb': {
-                db: {
-                    uri: process.env.MONGOLAB_URI || 'mongodb://127.0.0.1/app?auto_reconnect=true',
-                    options: { safe: true }
-                },
-                collection: {}
+            'dragonnodejs-redis': {
+                client: (function () {
+                    if (process.env.REDISCLOUD_URL) {
+                        return { unix_socket: process.env.REDISCLOUD_URL };
+                    }
+                    return {};
+                })(),
+                cache: {}
             },
             'dragonnodejs-webserver': {
                 app: { port: process.env.PORT },
@@ -58,7 +60,7 @@ var config = {
                             crawlerurl: 'http://www.maxdome.de/serie/neu-bei-maxdome',
                             asseturl: 'http://www.maxdome.de'
                         },
-                        cache: 60
+                        cache: 60 * 60
                     },
                     {
                         route: '/package/new-movies',
@@ -71,7 +73,7 @@ var config = {
                             crawlerurl: 'http://www.maxdome.de/spielfilm/neu-bei-maxdome',
                             asseturl: 'http://www.maxdome.de'
                         },
-                        cache: 60
+                        cache: 60 * 60
                     },
                     {
                         route: '/store/new-series',
@@ -84,7 +86,7 @@ var config = {
                             crawlerurl: 'http://store.maxdome.de/serie/neu-bei-maxdome',
                             asseturl: 'http://store.maxdome.de'
                         },
-                        cache: 60
+                        cache: 60 * 60
                     },
                     {
                         route: '/store/new-movies',
@@ -97,7 +99,7 @@ var config = {
                             crawlerurl: 'http://store.maxdome.de/spielfilm/neu-bei-maxdome',
                             asseturl: 'http://store.maxdome.de'
                         },
-                        cache: 60
+                        cache: 60 * 60
                     }
                 ]
             },
