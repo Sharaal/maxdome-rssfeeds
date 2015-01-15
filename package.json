@@ -1,6 +1,6 @@
 {
     "name": "maxdome-rssfeeds",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "scripts": {
         "start": "node app.js",
         "postinstall": "npm install -g bower && bower install"
