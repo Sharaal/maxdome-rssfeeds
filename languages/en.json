@@ -29,7 +29,7 @@
         }
     },
     "feedly": {
-        "title": "Step by step manual with Feedly.com",
+        "title": "Step by Step manual with Feedly.com",
         "close": "Close",
         "sections": [
             {
@@ -44,7 +44,7 @@
             {
                 "title": "Smartphone",
                 "steps": [
-                    { "title": "Download and install 'feedly' from the app store" },
+                    { "title": "Install 'Feedly. Your news reader.' from the <a href=\"http://itunes.apple.com/en/app/feedly.-your-rss-news-reader./id396069556\" target=\"_blank\">app store</a> or <a href=\"http://play.google.com/store/apps/details?id=com.devhd.feedly\" target=\"_blank\">play store</a>" },
                     { "title": "Register and/or login" },
                     { "title": "Click 'Add website' and insert 'http://maxdome-rssfeeds.herokuapp.com/'" },
                     { "title": "Select the RSS Feeds you will be up to date" },

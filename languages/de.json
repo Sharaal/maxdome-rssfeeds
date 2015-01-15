@@ -44,7 +44,7 @@
             {
                 "title": "Smartphone",
                 "steps": [
-                    { "title": "Download und installiere 'feedly' aus dem App Store" },
+                    { "title": "Installiere 'Feedly. Your news reader.' aus dem <a href=\"http://itunes.apple.com/de/app/feedly.-your-rss-news-reader./id396069556\" target=\"_blank\">App Store</a> oder <a href=\"http://play.google.com/store/apps/details?id=com.devhd.feedly\" target=\"_blank\">Play Store</a>" },
                     { "title": "Registriere dich und/oder melde dich an" },
                     { "title": "Klicke auf 'Add website' und füge 'http://maxdome-rssfeeds.herokuapp.com/' ein" },
                     { "title": "Wähle die RSS Feeds bei welchen du auf dem neusten Stand sein willst" },
