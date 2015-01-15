@@ -1,35 +1,35 @@
 {
     "language": "en",
-    "title": "Maxdome RSS Feeds",
+    "title": "Maxdome RSS feeds",
     "description": "App to crawl new series and movies of maxdome package and store to generate rss feeds",
     "feeds": {
         "maxdome-blog" : {
-            "title": "Maxdome Blog",
-            "description": "RSS Feed of the Maxdome blog with the news from the world of the movies"
+            "title": "Maxdome blog",
+            "description": "RSS feed of the Maxdome blog with the news from the world of the movies"
         },
         "maxdome-news-blog" : {
-            "title": "Maxdome News Blog",
-            "description": "RSS Feed of the Maxdome blog with the news of the company"
+            "title": "Maxdome news blog",
+            "description": "RSS feed of the Maxdome blog with the news of the company"
         },
         "package-new-series" : {
-            "title": "New Series in the package",
-            "description": "RSS Feed with the new series in the monthly package"
+            "title": "New series in the package",
+            "description": "RSS feed with the new series in the monthly package"
         },
         "package-new-movies" : {
-            "title": "New Movies in the package",
-            "description": "RSS Feed with the new movies in the monthly package"
+            "title": "New movies in the package",
+            "description": "RSS feed with the new movies in the monthly package"
         },
         "store-new-series" : {
-            "title": "New Series in the store",
-            "description": "RSS Feed with the new series in the store"
+            "title": "New series in the store",
+            "description": "RSS feed with the new series in the store"
         },
         "store-new-movies" : {
-            "title": "New Movies in the store",
-            "description": "RSS Feed with the new movies in the store"
+            "title": "New movies in the store",
+            "description": "RSS feed with the new movies in the store"
         }
     },
     "feedly": {
-        "title": "Step by Step manual with Feedly.com",
+        "title": "Step by step manual with feedly.com",
         "close": "Close",
         "sections": [
             {
@@ -38,7 +38,7 @@
                     { "title": "Visit <a href=\"http://feedly.com/\" target=\"_blank\">http://feedly.com/</a>" },
                     { "title": "Register and/or login" },
                     { "title": "Visit <a href=\"http://feedly.com/i/spotlight/maxdome-rssfeeds.herokuapp.com\" target=\"_blank\">http://feedly.com/i/spotlight/maxdome-rssfeeds.herokuapp.com</a> or click 'Add Content' and insert 'http://maxdome-rssfeeds.herokuapp.com/'" },
-                    { "title": "Select the RSS Feeds you will be up to date" }
+                    { "title": "Select the RSS feeds you will be up to date" }
                 ]
             },
             {
@@ -47,7 +47,7 @@
                     { "title": "Install 'Feedly. Your news reader.' from the <a href=\"http://itunes.apple.com/en/app/feedly.-your-rss-news-reader./id396069556\" target=\"_blank\">app store</a> or <a href=\"http://play.google.com/store/apps/details?id=com.devhd.feedly\" target=\"_blank\">play store</a>" },
                     { "title": "Register and/or login" },
                     { "title": "Click 'Add website' and insert 'http://maxdome-rssfeeds.herokuapp.com/'" },
-                    { "title": "Select the RSS Feeds you will be up to date" },
+                    { "title": "Select the RSS feeds you will be up to date" },
                     { "title": "Personal recommend: Open the settings. In the 'Look and Feel' section change 'Transition' to 'scroll' and 'Default View' to 'List'" }
                 ]
             }
