@@ -15,11 +15,24 @@
     <h3>{{ language.feeds[channel.name].title }}</h3>
     <br>
     {% for item in items %}
-        <h4>
-            <a href="{{ item.link }}">
-                {{ item.title }}
-            </a>
-        </h4>
-        <p>{{ item.description }}</p>
+        <div class="row">
+            <div class="col-md-3">
+                {% if item.image %}
+                    <img src="{{ item.image.src }}"
+                         alt="{{ item.title }}"
+                         {% if item.image.width %}width="{{ item.image.width }}"{% endif %}
+                         {% if item.image.height %}height="{{ item.image.height }}"{% endif %} />
+                {% endif %}
+            </div>
+            <div class="col-md-9">
+                <h4>
+                    <a href="{{ item.link }}">
+                        {{ item.title }}
+                    </a>
+                </h4>
+                <p>{{ item.description }}</p>
+            </div>
+        </div>
+        <br>
     {% endfor %}
 {% endblock %}

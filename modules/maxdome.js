@@ -18,10 +18,16 @@ module.exports = function (config, libraries, services) {
             $('ul.module-s4--covers > li > div.content').each(function(i, div) {
                 div = $(div);
                 var a = div.find('a');
+                var img = a.find('img');
                 var item = {
                     title: div.data('asset-title'),
                     link: parser.asseturl + a.attr('href'),
-                    guid: div.data('asset-id')
+                    guid: div.data('asset-id'),
+                    image: {
+                        src: img.data('original'),
+                        width: img.attr('width'),
+                        height: img.attr('height')
+                    }
                 };
                 items.push(item);
                 parallels.push(function (callback) {
