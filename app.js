@@ -102,6 +102,10 @@ var config = {
                         },
                         cache: 60 * 60
                     }
+                ],
+                types: [
+                    { url: '/feed', template: 'rss' },
+                    { url: '', template: 'html' }
                 ]
             },
             homepage: {

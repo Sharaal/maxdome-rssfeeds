@@ -25,13 +25,8 @@ module.exports = function (config, libraries, services) {
         cache = services.cache,
         language = services.language;
 
-    var types = [
-        { url: '/feed', template: 'rss' },
-        { url: '', template: 'html' }
-    ];
-
     for (var key in config.feeds) {
-        for (var subkey in types) {
+        for (var subkey in config.types) {
             (function (feed, type) {
                 app.get(
                     feed.route + type.url + '/:language?',
@@ -55,7 +50,7 @@ module.exports = function (config, libraries, services) {
                         );
                     }
                 );
-            })(config.feeds[key], types[subkey]);
+            })(config.feeds[key], config.types[subkey]);
         }
     }
 };
