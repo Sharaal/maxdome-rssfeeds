@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{ language.language }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}{{ language.title }}</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/{{ bower.bootstrap }}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/jumbotron-narrow.css" rel="stylesheet">
+    {% block feeds %}{% endblock %}
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h3><a href="/">{{ language.title }}</a></h3>
+    </div>
+    <div class="marketing">
+        {% block content %}{% endblock %}
+    </div>
+    <footer class="footer">
+        <p>
+            <a href="http://github.com/dragonprojects/maxdome-rssfeeds" target="_blank">{{ app.name }}</a> v{{ app.version }},
+            &copy; <a href="http://dragonprojects.de" target="_blank">DragonProjects</a> 2015,
+            <a href="#" data-toggle="modal" data-target="#feedlyModal">{{ language.feedly.title }}</a>
+        </p>
+    </footer>
+    <div class="modal fade" id="feedlyModal" tabindex="-1" role="dialog" aria-labelledby="feedlyLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ language.feedly.close }}"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="feedlyLabel">{{ language.feedly.title }}</h4>
+                </div>
+                <div class="modal-body">
+                    {% for section in language.feedly.sections %}
+                        <h5>{{ section.title }}</h5>
+                        <ol>
+                            {% for step in section.steps %}
+                                <li>{{ step.title|raw }}</li>
+                            {% endfor %}
+                        </ol>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/{{ bower.jquery }}/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/{{ bower.bootstrap }}/js/bootstrap.min.js"></script>
+</body>
+</html>

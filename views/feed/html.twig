@@ -1,0 +1,23 @@
+{% extends '../layout.twig' %}
+
+{% block title %}{{ language.feeds[channel.name].title }} - {% endblock %}
+
+{% block description %}{{ language.feeds[channel.name].description }}{% endblock %}
+
+{% block feeds %}
+    <link rel="alternate"
+          type="application/rss+xml"
+          title="{{ language.feeds[channel.name].title }}"
+          href="feed/{{ language.language }}" />
+{% endblock %}
+
+{% block content %}
+    {% for item in items %}
+        <h4>
+            <a href="{{ item.link }}">
+                {{ item.title }}
+            </a>
+        </h4>
+        <p>{{ item.description }}</p>
+    {% endfor %}
+{% endblock %}

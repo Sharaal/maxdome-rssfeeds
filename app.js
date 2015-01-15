@@ -45,12 +45,13 @@ var config = {
             }
         },
         directory: {
+            app: { path: __dirname + '/package.json' },
             crawler: {},
             maxdome: {},
-            rss: {
+            feed: {
                 feeds: [
                     {
-                        route: '/package/new-series/feed',
+                        route: '/package-new-series',
                         channel: {
                             name: 'package-new-series',
                             link: 'http://www.maxdome.de/serie/neu-bei-maxdome'
@@ -63,7 +64,7 @@ var config = {
                         cache: 60 * 60
                     },
                     {
-                        route: '/package/new-movies/feed',
+                        route: '/package-new-movies',
                         channel: {
                             name: 'package-new-movies',
                             link: 'http://www.maxdome.de/spielfilm/neu-bei-maxdome'
@@ -76,7 +77,7 @@ var config = {
                         cache: 60 * 60
                     },
                     {
-                        route: '/store/new-series/feed',
+                        route: '/store-new-series',
                         channel: {
                             name: 'store-new-series',
                             link: 'http://store.maxdome.de/serie/neu-bei-maxdome'
@@ -89,7 +90,7 @@ var config = {
                         cache: 60 * 60
                     },
                     {
-                        route: '/store/new-movies/feed',
+                        route: '/store-new-movies',
                         channel: {
                             name: 'store-new-movies',
                             link: 'http://store.maxdome.de/spielfilm/neu-bei-maxdome'
@@ -104,20 +105,29 @@ var config = {
                 ]
             },
             homepage: {
-                app: (function () {
-                    var json = require(__dirname + '/package.json');
-                    return {
-                        name: json.name,
-                        version: json.version
-                    };
-                })(),
                 feeds: {
-                    'package-new-series': '/package/new-series/feed/%language%',
-                    'package-new-movies': '/package/new-movies/feed/%language%',
-                    'store-new-series': '/store/new-series/feed/%language%',
-                    'store-new-movies': '/store/new-movies/feed/%language%',
-                    'maxdome-blog': 'http://blog.maxdome.de/feed',
-                    'maxdome-news-blog': 'http://blog.maxdome.de/maxdome-news/feed'
+                    'package-new-series': {
+                        rss: '/package-new-series/feed/%language%',
+                        html: '/package-new-series/%language%'
+                    },
+                    'package-new-movies': {
+                        rss: '/package-new-movies/feed/%language%',
+                        html: '/package-new-movies/%language%'
+                    },
+                    'store-new-series': {
+                        rss: '/store-new-series/feed/%language%',
+                        html: '/store-new-series/%language%'
+                    },
+                    'store-new-movies': {
+                        rss: '/store-new-movies/feed/%language%',
+                        html: '/store-new-movies/%language%'
+                    },
+                    'maxdome-blog': {
+                        rss: 'http://blog.maxdome.de/feed'
+                    },
+                    'maxdome-news-blog': {
+                        rss: 'http://blog.maxdome.de/maxdome-news/feed'
+                    }
                 }
             }
         }
