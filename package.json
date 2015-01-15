@@ -6,7 +6,7 @@
         "postinstall": "npm install -g bower && bower install"
     },
     "dependencies": {
-        "dragonnodejs": "~3.0.0",
+        "dragonnodejs": "~3.0.3",
         "dragonnodejs-redis": "~1.6.0",
         "dragonnodejs-webserver": "~4.2.0",
         "async": "~0.9.0",
