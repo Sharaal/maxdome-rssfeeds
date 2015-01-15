@@ -16,7 +16,7 @@ var config = {
         npm: {
             'dragonnodejs-redis': {
                 client: { uri: process.env.REDISCLOUD_URL },
-                cache: {}
+                cache: { disabled: process.env.CACHE_DISABLED }
             },
             'dragonnodejs-webserver': {
                 app: { port: process.env.PORT },
