@@ -15,12 +15,7 @@ var config = {
     modules: {
         npm: {
             'dragonnodejs-redis': {
-                client: (function () {
-                    if (process.env.REDISCLOUD_URL) {
-                        return { uri: process.env.REDISCLOUD_URL };
-                    }
-                    return {};
-                })(),
+                client: { uri: process.env.REDISCLOUD_URL },
                 cache: {}
             },
             'dragonnodejs-webserver': {
