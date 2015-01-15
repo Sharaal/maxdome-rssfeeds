@@ -25,6 +25,11 @@ var config = {
             },
             'dragonnodejs-webserver': {
                 app: { port: process.env.PORT },
+                auth: {
+                    realm: 'Test',
+                    user: process.env.AUTH_USER,
+                    password: process.env.AUTH_PASSWORD
+                },
                 bower: {
                     libraries: ['jquery', 'bootstrap'],
                     path: __dirname + '/bower_components/'
