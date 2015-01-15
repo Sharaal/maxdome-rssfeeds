@@ -18,7 +18,7 @@
     <body>
         <div class="container">
             <div class="header">
-                <h2><a href="http://www.maxdome.de/">{{ language.title }}</a></h2>
+                <h3><a href="http://www.maxdome.de/" target="_blank">{{ language.title }}</a></h3>
             </div>
             <div class="marketing">
                 {% for name, url in feeds %}
@@ -32,10 +32,31 @@
             </div>
             <footer class="footer">
                 <p>
-                    <a href="http://github.com/dragonprojects/maxdome-rssfeeds">{{ app.name }}</a> v{{ app.version }},
-                    &copy; <a href="http://dragonprojects.de">DragonProjects</a> 2015
+                    <a href="http://github.com/dragonprojects/maxdome-rssfeeds" target="_blank">{{ app.name }}</a> v{{ app.version }},
+                    &copy; <a href="http://dragonprojects.de" target="_blank">DragonProjects</a> 2015,
+                    <a href="#" data-toggle="modal" data-target="#feedlyModal">{{ language.feedly.title }}</a>
                 </p>
             </footer>
+            <div class="modal fade" id="feedlyModal" tabindex="-1" role="dialog" aria-labelledby="feedlyLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="{{ language.feedly.close }}"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="feedlyLabel">{{ language.feedly.title }}</h4>
+                        </div>
+                        <div class="modal-body">
+                            {% for section in language.feedly.sections %}
+                            <h5>{{ section.title }}</h5>
+                            <ol>
+                                {% for step in section.steps %}
+                                <li>{{ step.title|raw }}</li>
+                                {% endfor %}
+                            </ol>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/{{ bower.jquery }}/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/{{ bower.bootstrap }}/js/bootstrap.min.js"></script>

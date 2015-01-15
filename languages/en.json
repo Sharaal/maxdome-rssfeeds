@@ -27,5 +27,30 @@
             "title": "New Movies in the store",
             "description": "RSS Feed with the new movies in the store"
         }
+    },
+    "feedly": {
+        "title": "Step by step manual with Feedly.com",
+        "close": "Close",
+        "sections": [
+            {
+                "title": "Browser",
+                "steps": [
+                    { "title": "Visit <a href=\"http://feedly.com/\" target=\"_blank\">http://feedly.com/</a>" },
+                    { "title": "Register and/or login" },
+                    { "title": "Visit <a href=\"http://feedly.com/i/spotlight/maxdome-rssfeeds.herokuapp.com\" target=\"_blank\">http://feedly.com/i/spotlight/maxdome-rssfeeds.herokuapp.com</a> or click 'Add Content' and insert 'http://maxdome-rssfeeds.herokuapp.com/'" },
+                    { "title": "Select the RSS Feeds you will be up to date" }
+                ]
+            },
+            {
+                "title": "Smartphone",
+                "steps": [
+                    { "title": "Download and install 'feedly' from the app store" },
+                    { "title": "Register and/or login" },
+                    { "title": "Click 'Add website' and insert 'http://maxdome-rssfeeds.herokuapp.com/'" },
+                    { "title": "Select the RSS Feeds you will be up to date" },
+                    { "title": "Personal recommend: Open the settings. In the 'Look and Feel' section change 'Transition' to 'scroll' and 'Default View' to 'List'" }
+                ]
+            }
+        ]
     }
 }

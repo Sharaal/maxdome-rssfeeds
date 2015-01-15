@@ -27,5 +27,30 @@
             "title": "Neue Filme im Store",
             "description": "RSS Feed mit den neuen Filmen im Store"
         }
+    },
+    "feedly": {
+        "title": "Schritt für Schritt Anleitung mit Feedly.com",
+        "close": "Schliessen",
+        "sections": [
+            {
+                "title": "Browser",
+                "steps": [
+                    { "title": "Besuche <a href=\"http://feedly.com/\" target=\"_blank\">http://feedly.com/</a>" },
+                    { "title": "Registriere dich und/oder melde dich an" },
+                    { "title": "Besuche <a href=\"http://feedly.com/i/spotlight/maxdome-rssfeeds.herokuapp.com\" target=\"_blank\">http://feedly.com/i/spotlight/maxdome-rssfeeds.herokuapp.com</a> oder klicke auf 'Add Content' und füge 'http://maxdome-rssfeeds.herokuapp.com/' ein" },
+                    { "title": "Wähle die RSS Feeds bei welchen du auf dem neusten Stand sein willst" }
+                ]
+            },
+            {
+                "title": "Smartphone",
+                "steps": [
+                    { "title": "Download und installiere 'feedly' aus dem App Store" },
+                    { "title": "Registriere dich und/oder melde dich an" },
+                    { "title": "Klicke auf 'Add website' und füge 'http://maxdome-rssfeeds.herokuapp.com/' ein" },
+                    { "title": "Wähle die RSS Feeds bei welchen du auf dem neusten Stand sein willst" },
+                    { "title": "Persönliche Empfehlung: Öffne die Einstellungen. Im 'Look and Feel' Bereich ändere 'Transition' zu 'scroll' und 'Default View' zu 'List'" }
+                ]
+            }
+        ]
     }
 }
