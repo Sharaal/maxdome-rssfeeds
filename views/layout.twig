@@ -20,16 +20,16 @@
     <footer class="footer">
         <p>
             <a href="http://github.com/dragonprojects/maxdome-rssfeeds" target="_blank">{{ app.name }}</a> v{{ app.version }},
-            &copy; <a href="http://dragonprojects.de" target="_blank">DragonProjects</a> 2015,
-            <a href="#" data-toggle="modal" data-target="#feedlyModal">{{ language.feedly.title }}</a>
+            <a href="#" data-toggle="modal" data-target="#feedlyModal">{{ language.feedly.label }}</a>,
+            <a href="#" data-toggle="modal" data-target="#imprintModal">{{ language.imprint.label }}</a>
         </p>
     </footer>
     <div class="modal fade" id="feedlyModal" tabindex="-1" role="dialog" aria-labelledby="feedlyLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ language.feedly.close }}"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="feedlyLabel">{{ language.feedly.title }}</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ language.close }}"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="feedlyLabel">{{ language.feedly.label }}</h4>
                 </div>
                 <div class="modal-body">
                     {% for section in language.feedly.sections %}
@@ -40,6 +40,25 @@
                             {% endfor %}
                         </ol>
                     {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="imprintModal" tabindex="-1" role="dialog" aria-labelledby="imprintLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{ language.close }}"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="imprintLabel">{{ language.imprint.label }}</h4>
+                </div>
+                <div class="modal-body">
+                    <address>
+                        Christoph Herrmann<br>
+                        <a href="mailto:developer@dragonprojects.de">developer@dragonprojects.de</a>
+                    </address>
+                </div>
+                <div class="modal-footer">
+                    &copy; <a href="http://dragonprojects.de" target="_blank">DragonProjects</a> 2015
                 </div>
             </div>
         </div>

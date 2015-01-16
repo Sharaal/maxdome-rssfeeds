@@ -28,9 +28,9 @@
             "description": "RSS Feed mit den neuen Filmen im Store"
         }
     },
+    "close": "Schliessen",
     "feedly": {
-        "title": "Schritt für Schritt Anleitung mit feedly.com",
-        "close": "Schliessen",
+        "label": "Schritt für Schritt Anleitung mit feedly.com",
         "sections": [
             {
                 "title": "Browser",
@@ -52,5 +52,8 @@
                 ]
             }
         ]
+    },
+    "imprint": {
+        "label": "Impressum"
     }
 }

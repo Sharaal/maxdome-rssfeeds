@@ -28,9 +28,9 @@
             "description": "RSS feed with the new movies in the store"
         }
     },
+    "close": "Close",
     "feedly": {
-        "title": "Step by step manual with feedly.com",
-        "close": "Close",
+        "label": "Step by step manual with feedly.com",
         "sections": [
             {
                 "title": "Browser",
@@ -52,5 +52,8 @@
                 ]
             }
         ]
+    },
+    "imprint": {
+        "label": "Imprint"
     }
 }
