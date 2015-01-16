@@ -21,7 +21,7 @@ var config = {
             'dragonnodejs-webserver': {
                 app: { port: process.env.PORT },
                 auth: {
-                    realm: 'Test',
+                    realm: process.env.AUTH_REALM,
                     user: process.env.AUTH_USER,
                     password: process.env.AUTH_PASSWORD
                 },
