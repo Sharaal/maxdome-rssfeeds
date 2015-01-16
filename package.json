@@ -8,7 +8,7 @@
     "dependencies": {
         "dragonnodejs": "~3.0.3",
         "dragonnodejs-redis": "~1.7.0",
-        "dragonnodejs-webserver": "~4.2.0",
+        "dragonnodejs-webserver": "~4.3.0",
         "async": "~0.9.0",
         "crawler": "~0.4.1"
     },
