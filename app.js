@@ -19,7 +19,10 @@ var config = {
                 cache: { disabled: process.env.CACHE_DISABLED }
             },
             'dragonnodejs-webserver': {
-                app: { port: process.env.PORT },
+                app: {
+                    path: __dirname + '/package.json',
+                    port: process.env.PORT
+                },
                 auth: {
                     realm: process.env.AUTH_REALM,
                     user: process.env.AUTH_USER,
@@ -45,7 +48,6 @@ var config = {
             }
         },
         directory: {
-            app: { path: __dirname + '/package.json' },
             crawler: {},
             maxdome: {},
             feed: {
