@@ -106,8 +106,8 @@ var config = {
                     }
                 ],
                 types: [
-                    { url: '/feed', template: 'rss' },
-                    { url: '', template: 'html' }
+                    { url: '/feed', template: 'rss.twig' },
+                    { url: '', template: 'html.twig' }
                 ]
             },
             homepage: {

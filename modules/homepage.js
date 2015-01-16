@@ -17,7 +17,7 @@ module.exports = function (config, libraries, services) {
             next();
         },
         function (req, res) {
-            res.render('homepage', config);
+            res.render('homepage.twig', config);
         }
     );
 };
