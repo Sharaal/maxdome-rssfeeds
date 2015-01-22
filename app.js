@@ -30,7 +30,7 @@ var config = {
                 },
                 bower: {
                     libraries: ['jquery', 'bootstrap'],
-                    path: __dirname + '/bower_components/'
+                    path: __dirname + '/'
                 },
                 header: {
                     'X-UA-Compatible': 'IE=edge,chrome=1',
