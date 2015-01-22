@@ -3,9 +3,7 @@
 // Load the libraries and modules
 
 var config = {
-    npm: __dirname + '/node_modules/',
     libraries: {
-        nodejs: {},
         npm: {
             async: 'async',
             Crawler: 'crawler'
@@ -20,10 +18,12 @@ var config = {
             },
             'dragonnodejs-webserver': {
                 app: {
-                    path: __dirname + '/package.json',
-                    port: process.env.PORT
+                    port: process.env.PORT,
+                    package: __dirname + '/package.json',
+                    static: __dirname + '/web/'
                 },
                 auth: {
+                    disabled: process.env.AUTH_DISABLED,
                     realm: process.env.AUTH_REALM,
                     user: process.env.AUTH_USER,
                     password: process.env.AUTH_PASSWORD
@@ -43,7 +43,6 @@ var config = {
                     languages: ['de', 'en'],
                     path: __dirname + '/languages/'
                 },
-                static: { path: __dirname + '/web/' },
                 swig: { views: __dirname + '/views/' }
             }
         },

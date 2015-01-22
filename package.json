@@ -1,14 +1,14 @@
 {
     "name": "maxdome-rssfeeds",
-    "version": "1.6.0",
+    "version": "1.7.0",
     "scripts": {
         "start": "node app.js",
         "postinstall": "npm install -g bower && bower install"
     },
     "dependencies": {
-        "dragonnodejs": "~3.0.3",
-        "dragonnodejs-redis": "~1.7.0",
-        "dragonnodejs-webserver": "~5.0.0",
+        "dragonnodejs": "~3.1.0",
+        "dragonnodejs-redis": "~1.8.0",
+        "dragonnodejs-webserver": "~6.0.0",
         "async": "~0.9.0",
         "crawler": "~0.4.1"
     },

@@ -13,8 +13,7 @@ module.exports = function (config, libraries, services) {
     app.get(
         '/:language?',
         function (req, res, next) {
-            language(req.params.language, res);
-            next();
+            language(req, res, next, req.params.language);
         },
         function (req, res) {
             res.render('homepage.twig', config);
