@@ -34,9 +34,6 @@ module.exports = function (config, libraries, services) {
             (function (feed, type) {
                 app.get(
                     feed.route + type.url + '/:language?',
-                    function (req, res, next) {
-                        language(req, res, next, req.params.language);
-                    },
                     function (req, res) {
                         cache(
                             'feed:' + feed.route,
