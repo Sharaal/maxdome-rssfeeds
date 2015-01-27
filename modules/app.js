@@ -11,6 +11,6 @@ module.exports = function (config, libraries, services) {
         language = services.language;
 
     app.use(function (req, res, next) {
-        language(req, res, next, req.params.language);
+        language(req.params.language)(req, res, next);
     });
 };
