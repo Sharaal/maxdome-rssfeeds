@@ -31,10 +31,13 @@ var config = {
                     static: __dirname + '/web/'
                 },
                 auth: {
-                    disabled: process.env.AUTH_DISABLED,
+                    disabled: process.env.AUTH_DISABLED || !(process.env.AUTH_USER && process.env.AUTH_PASSWORD),
                     realm: process.env.AUTH_REALM,
-                    user: process.env.AUTH_USER,
-                    password: process.env.AUTH_PASSWORD
+                    users: function () {
+                        var users = {};
+                        users[process.env.AUTH_USER] = process.env.AUTH_PASSWORD;
+                        return users;
+                    }()
                 },
                 bower: {
                     libraries: ['jquery', 'bootstrap'],
