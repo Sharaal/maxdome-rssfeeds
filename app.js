@@ -12,19 +12,17 @@ if (process.env.NEW_RELIC_APP_NAME
 
 var config = {
     libraries: {
-        npm: {
-            async: 'async',
-            Crawler: 'crawler'
-        }
+        async: require('async'),
+        Crawler: require('crawler')
     },
     directory: __dirname + '/modules/',
     modules: {
-        npm: {
-            'dragonnodejs-redis': {
+        npm: [
+            [require('dragonnodejs-redis'), {
                 client: { uri: process.env.REDISCLOUD_URL },
                 cache: { disabled: process.env.CACHE_DISABLED }
-            },
-            'dragonnodejs-webserver': {
+            }],
+            [require('dragonnodejs-webserver'), {
                 app: {
                     port: process.env.PORT,
                     package: __dirname + '/package.json',
@@ -40,7 +38,7 @@ var config = {
                     }()
                 },
                 bower: {
-                    libraries: ['jquery', 'bootstrap'],
+                    libraries: ['bootstrap', 'jquery'],
                     path: __dirname + '/'
                 },
                 header: {
@@ -55,8 +53,8 @@ var config = {
                     path: __dirname + '/languages/'
                 },
                 swig: { views: __dirname + '/views/' }
-            }
-        },
+            }]
+        ],
         directory: {
             app: {},
             crawler: {},
