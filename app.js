@@ -20,6 +20,7 @@ var config = {
         npm: [
             [require('dragonnodejs-redis'), {
                 client: { uri: process.env.REDISCLOUD_URL },
+                json: {},
                 cache: { disabled: process.env.CACHE_DISABLED }
             }],
             [require('dragonnodejs-webserver'), {
