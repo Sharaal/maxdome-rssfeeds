@@ -2,7 +2,7 @@
 
 // Initialize New Relic Node.js agent
 
-if (process.env.NEW_RELIC_APP_NAME && process.env.NEW_RELIC_LICENSE_KEY && process.env.NEW_RELIC_LEVEL) {
+if (process.env.NEW_RELIC_LICENSE_KEY) {
     require('newrelic');
 }
 
