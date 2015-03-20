@@ -55,7 +55,6 @@ var config = {
             }]
         ],
         directory: {
-            app: {},
             crawler: {},
             maxdome: {},
             feed: {
