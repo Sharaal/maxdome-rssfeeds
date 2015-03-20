@@ -1,6 +1,6 @@
 {
     "name": "maxdome-rssfeeds",
-    "version": "1.13.1",
+    "version": "1.13.2",
     "scripts": {
         "start": "node cluster.js",
         "postinstall": "./node_modules/bower/bin/bower install"
