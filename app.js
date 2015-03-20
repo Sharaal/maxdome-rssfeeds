@@ -16,29 +16,16 @@ var config = {
     directory: __dirname + '/modules/',
     modules: {
         npm: [
-            [require('dragonnodejs-redis'), {
-                client: { uri: process.env.REDISCLOUD_URL },
-                json: {},
-                cache: { disabled: process.env.CACHE_DISABLED }
-            }],
-            [require('dragonnodejs-webserver'), {
+            [require('dragonnodejs-express'), {
                 app: {
-                    port: process.env.PORT,
-                    package: __dirname + '/package.json',
-                    static: __dirname + '/web/'
+                    port: process.env.PORT
                 },
                 auth: {
-                    disabled: process.env.AUTH_DISABLED || !(process.env.AUTH_USER && process.env.AUTH_PASSWORD),
-                    realm: process.env.AUTH_REALM,
-                    users: function () {
-                        var users = {};
-                        users[process.env.AUTH_USER] = process.env.AUTH_PASSWORD;
-                        return users;
-                    }()
-                },
-                bower: {
-                    libraries: ['bootstrap', 'jquery'],
-                    path: __dirname + '/'
+                    disabled: process.env.AUTH_DISABLED,
+                    users: process.env.AUTH_USERS,
+                    user: process.env.AUTH_USER,
+                    password: process.env.AUTH_PASSWORD,
+                    realm: process.env.AUTH_REALM
                 },
                 header: {
                     'X-UA-Compatible': 'IE=edge,chrome=1',
@@ -46,12 +33,35 @@ var config = {
                     'X-XSS-Protection': '1; mode=block',
                     'X-Powered-By': null
                 },
+                static: {
+                    directory: __dirname + '/web/'
+                }
+            }],
+            [require('dragonnodejs-redis'), {
+                client: {
+                    uri: process.env.REDISCLOUD_URL
+                },
+                json: {},
+                cache: {
+                    disabled: process.env.CACHE_DISABLED
+                }
+            }],
+            [require('dragonnodejs-webserver'), {
+                bower: {
+                    libraries: ['bootstrap', 'jquery'],
+                    path: __dirname + '/'
+                },
                 language: {
                     default: 'en',
                     languages: ['de', 'en'],
                     path: __dirname + '/languages/'
                 },
-                swig: { views: __dirname + '/views/' }
+                package: {
+                    path: __dirname + '/package.json'
+                },
+                swig: {
+                    views: __dirname + '/views/'
+                }
             }]
         ],
         directory: {
