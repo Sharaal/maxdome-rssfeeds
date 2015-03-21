@@ -3,7 +3,9 @@
     "version": "1.13.2",
     "scripts": {
         "start": "node cluster.js",
-        "postinstall": "./node_modules/bower/bin/bower install"
+        "postinstall": "npm run bower",
+        "bower": "./node_modules/bower/bin/bower install",
+        "forever": "./node_modules/forever/bin/forever -w app.js"
     },
     "dependencies": {
         "dragonnodejs": "^4.0.2",
@@ -15,6 +17,9 @@
         "crawler": "^0.4.1",
         "newrelic": "^1.15.1",
         "throng": "^1.0.0"
+    },
+    "devDependencies": {
+        "forever": "^0.14.1"
     },
     "repository": {
         "type": "git",
