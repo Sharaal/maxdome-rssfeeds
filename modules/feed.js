@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Serve the rss feeds with the data of the parsers

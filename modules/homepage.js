@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Serve the homepage with the overview about all rss feeds

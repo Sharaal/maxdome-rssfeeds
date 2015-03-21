@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // Cluster the application depends on the environment
 

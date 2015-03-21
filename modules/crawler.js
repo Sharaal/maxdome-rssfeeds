@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Service with the wrapper for the crawler library to crawl an url

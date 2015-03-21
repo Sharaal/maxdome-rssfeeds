@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // Configuration for the New Relic Node.js agent
 

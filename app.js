@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // Initialize New Relic Node.js agent
 
