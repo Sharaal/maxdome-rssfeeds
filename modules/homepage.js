@@ -16,7 +16,7 @@ module.exports = function (config, libraries, services) {
             language(req.params.language)(req, res, next);
         },
         function (req, res) {
-            res.render('homepage.twig', config);
+            res.render('homepage.html.twig', config);
         }
     );
 };

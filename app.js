@@ -123,8 +123,8 @@ var config = {
                     }
                 ],
                 types: [
-                    { url: '/feed', template: 'rss.twig' },
-                    { url: '', template: 'html.twig' }
+                    { url: '/feed', template: 'list.xml.twig' },
+                    { url: '', template: 'list.html.twig' }
                 ]
             },
             homepage: {
