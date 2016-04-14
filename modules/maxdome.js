@@ -15,16 +15,17 @@ module.exports = function (config, libraries, services) {
         crawler(parser.crawlerurl, function (err, $) {
             var parallels = [];
             var items = [];
-            $('ul.module-s4--covers > li > div.content').each(function(i, div) {
+            $('ul.module-s4--covers div[data-react-props]').each(function(i, div) {
                 div = $(div);
                 var a = div.find('a');
                 var img = a.find('img');
+                var props = div.data('react-props');
                 var item = {
-                    title: div.data('asset-title'),
-                    link: parser.asseturl + a.attr('href'),
-                    guid: div.data('asset-id'),
+                    title: props.asset.title,
+                    link: a.attr('href'),
+                    guid: props.asset.id,
                     image: {
-                        src: img.data('original'),
+                        src: props.asset.coverList[0].url,
                         width: img.attr('width'),
                         height: img.attr('height')
                     }
