@@ -22,7 +22,7 @@ module.exports = function (config, libraries, services) {
                 var props = div.data('react-props');
                 var item = {
                     title: props.asset.title,
-                    link: parser.asseturl + a.attr('href'),
+                    link: parser.asseturl + '/' + props.asset.id,
                     guid: props.asset.id,
                     image: {
                         src: props.asset.coverList[0].url,
