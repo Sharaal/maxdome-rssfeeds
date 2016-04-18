@@ -1,28 +1,30 @@
 {
-    "name": "maxdome-rssfeeds",
-    "version": "1.14.1",
-    "scripts": {
-        "start": "node cluster.js",
-        "postinstall": "npm run bower",
-        "bower": "./node_modules/bower/bin/bower install",
-        "start-watch": "./node_modules/nodemon/bin/nodemon.js --watch app.js --watch modules app.js"
-    },
-    "dependencies": {
-        "dragonnodejs": "^4.0.2",
-        "dragonnodejs-express": "^2.1.1",
-        "dragonnodejs-redis": "^2.0.1",
-        "dragonnodejs-webserver": "^9.1.1",
-        "async": "^0.9.0",
-        "bower": "^1.3.12",
-        "crawler": "^0.4.1",
-        "newrelic": "^1.15.1",
-        "throng": "^1.0.0"
-    },
-    "devDependencies": {
-        "nodemon": "^1.3.7"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/dragonprojects/maxdome-rssfeeds.git"
-    }
+  "name": "maxdome-rssfeeds",
+  "description": "",
+  "version": "1.0.0",
+  "homepage": "http://github.com/dragonprojects/maxdome-rssfeeds",
+  "license": "MIT",
+  "private": true,
+  "readmeFilename": "README.md",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "dthrong"
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "crawler": "^0.4.3",
+    "dcache": "^1.0.0",
+    "dcontrollers": "^1.0.0",
+    "dexpress": "^1.1.0",
+    "dheaders": "^1.0.0",
+    "dhttp-auth": "^1.3.0",
+    "dnewrelic": "^1.4.0",
+    "dredis": "^2.0.0",
+    "dthrong": "^2.3.0",
+    "swig": "^1.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dragonprojects/maxdome-rssfeeds.git"
+  }
 }
