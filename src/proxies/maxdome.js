@@ -25,7 +25,7 @@ module.exports = (dcache) => {
             );
           });
         });
-        async.parallelLimit(parallels, 5, () => { callback(items); });
+        async.parallel(parallels, () => { callback(items); });
       });
     }, callback, 60 * 60);
   };
