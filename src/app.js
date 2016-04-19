@@ -9,10 +9,15 @@ if (dhttpAuth) {
   app.use(dhttpAuth);
 }
 app.engine('twig', require('swig').renderFile);
-let rssfeeds = require('./rssfeeds.js');
-let controllers = [require('./controllers/index.js')(rssfeeds)];
-let maxdome = require('./proxies/maxdome.js')(require('dcache')(require('dredis')(process.env.REDIS_URL)));
-rssfeeds.forEach((rssfeed) => {
-  controllers.push(require('./controllers/rssfeed.js')(rssfeed, maxdome));
+let configs = require('./configs.js');
+let controllers = [require('./controllers/index.js')(configs)];
+let rssfeed = require('./controllers/rssfeed.js');
+let dcache;
+if (!process.env.CACHE_DISABLED) {
+  dcache = require('dcache')(require('dredis')(process.env.REDIS_URL));
+}
+let proxies = { maxdome: require('./proxies/maxdome.js') };
+configs.forEach((config) => {
+  controllers.push(rssfeed(dcache, config.rssfeed, proxies[config.proxy.name](config.proxy.config)));
 });
 require('dcontrollers')(app, controllers);

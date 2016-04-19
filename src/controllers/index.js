@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = (rssfeeds) => {
+module.exports = (configs) => {
   return ['get', ['/', (req, res) => {
-    res.render('index.html.twig', { rssfeeds });
+    res.render('index.html.twig', { configs });
   }]];
 };

@@ -1,9 +1,14 @@
 'use strict';
 
-module.exports = (rssfeed, maxdome) => {
+module.exports = (dcache, rssfeed, proxy) => {
   return ['get', [rssfeed.route, (req, res) => {
-    maxdome(rssfeed, (items) => {
-      res.render('rssfeed.xml.twig', { channel: { title: rssfeed.title, link: rssfeed.host + rssfeed.path }, items });
-    });
+    const callback = (items) => {
+      res.render('rssfeed.xml.twig', { channel: rssfeed.channel, items });
+    };
+    if (dcache) {
+      dcache('items:' + rssfeed.route, proxy, callback, 60 * 60);
+    } else {
+      proxy(callback);
+    }
   }]];
 };

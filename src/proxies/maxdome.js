@@ -1,32 +1,26 @@
 'use strict';
 
-const async = require('async');
-const Crawler = require('crawler');
+const request = require('request');
 
-let crawl = (url, callback) => {
-  new Crawler({ callback: (err, res, $) => { callback($); } }).queue(url);
-};
-module.exports = (dcache) => {
-  return (rssfeed, callback) => {
-    dcache('items:' + rssfeed.route, (callback) => {
-      crawl(rssfeed.host + rssfeed.path, ($) => {
-        let items = [];
-        let parallels = [];
-        $('ul.module-s4--covers div[data-react-props]').each((i, div) => {
-          let props = $(div).data('react-props');
-          let item = { guid: props.asset.id, title: props.asset.title, link: rssfeed.host + '/' + props.asset.id };
-          items.push(item);
-          parallels.push((callback) => {
-            dcache(
-              'item:' + item.guid,
-              (callback) => { crawl(item.link, ($) => { callback({ description: $('meta[property="og:description"]').attr('content') }); }); },
-              (value) => { item.description = value.description; callback(); },
-              60 * 60 * 24 * 30
-            );
-          });
-        });
-        async.parallel(parallels, () => { callback(items); });
-      });
-    }, callback, 60 * 60);
+module.exports = (config) => {
+  return (callback) => {
+    const options = {
+      url: 'https://heimdall.maxdome.de/interfacemanager-2.1/mxd/assets?filter[]=%type%&filter[]=new&filter[]=notUnlisted&sort[]=activeLicenseStart~desc&filter[]=%area%&appid=%appid%&apikey=%apikey%'
+        .replace('%appid%', config.appid)
+        .replace('%apikey%', config.apikey)
+        .replace('%area%', { package: 'hasPackageContent', store: 'availableWithoutPackage'}[config.area])
+        .replace('%type%', { movies: 'movies', series: 'seasons' }[config.type]),
+      headers: { clienttype: config.clienttype, 'Maxdome-Origin': 'de', Accept: 'application/json' }
+    };
+    request(options, (error, response, body) => {
+      callback(JSON.parse(body).assetList.map((asset) => {
+        return {
+          guid: asset.id,
+          title: asset.title,
+          link: { package: 'http://www.maxdome.de', store: 'http://store.maxdome.de'}[config.area].replace('%assetId%', asset.id),
+          description: asset.descriptionShort
+        };
+      }));
+    });
   };
 };

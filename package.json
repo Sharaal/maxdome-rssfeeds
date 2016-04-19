@@ -11,8 +11,6 @@
     "start": "dthrong"
   },
   "dependencies": {
-    "async": "^1.5.2",
-    "crawler": "^0.4.3",
     "dcache": "^1.0.0",
     "dcontrollers": "^1.0.0",
     "dexpress": "^1.1.0",
@@ -21,6 +19,7 @@
     "dnewrelic": "^1.4.0",
     "dredis": "^2.0.0",
     "dthrong": "^2.3.0",
+    "request": "^2.72.0",
     "swig": "^1.4.2"
   },
   "repository": {
