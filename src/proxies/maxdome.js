@@ -17,7 +17,7 @@ module.exports = (config) => {
         return {
           guid: asset.id,
           title: asset.title,
-          link: { package: 'http://www.maxdome.de', store: 'http://store.maxdome.de'}[config.area].replace('%assetId%', asset.id),
+          link: { package: 'http://www.maxdome.de/%assetId%', store: 'http://store.maxdome.de/%assetId%'}[config.area].replace('%assetId%', asset.id),
           description: asset.descriptionShort
         };
       }));
