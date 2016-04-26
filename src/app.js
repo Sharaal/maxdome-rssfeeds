@@ -5,7 +5,7 @@ import render from 'koa-swig';
 import RssfeedsRouter from './routers/rssfeeds.js';
 
 const app = new Koa();
-app.context.render = co.wrap(render({ root: 'views' }));
+app.context.render = co.wrap(render({ writeBody: false }));
 const rssfeedsRouter = RssfeedsRouter();
 app
   .use(rssfeedsRouter.routes())
