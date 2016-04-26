@@ -1,9 +1,9 @@
 const configs = {
-  maxdome: (title, config) => {
+  maxdome: (config) => {
     return {
       channel: {
         link: { package: 'http://www.maxdome.de', store: 'http://store.maxdome.de'}[config.area],
-        title,
+        title: 'Neue ' + { movies: 'Filme', series: 'Serien'}[config.type] + ' im ' + { package: 'Paket', store: 'Store'}[config.area],
         ttl: 10
       },
       route: '/' + config.area + '-' + config.type,
@@ -13,8 +13,8 @@ const configs = {
 };
 
 export default [
-  configs.maxdome('Neue Serien im Paket', { area: 'package', type: 'series' }),
-  configs.maxdome('Neue Filme im Paket', { area: 'package', type: 'movies' }),
-  configs.maxdome('Neue Serien im Store', { area: 'store', type: 'series' }),
-  configs.maxdome('Neue Filme im Store', { area: 'store', type: 'movies' })
+  configs.maxdome({ area: 'package', type: 'series' }),
+  configs.maxdome({ area: 'package', type: 'movies' }),
+  configs.maxdome({ area: 'store', type: 'series' }),
+  configs.maxdome({ area: 'store', type: 'movies' })
 ];
