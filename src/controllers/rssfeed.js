@@ -1,9 +1,4 @@
-'use strict';
-
-module.exports = (rssfeed, proxy) => {
-  return ['get', [rssfeed.route, (req, res) => {
-    proxy((items) => {
-      res.render('rssfeed.xml.twig', { channel: rssfeed.channel, items });
-    });
-  }]];
+export default (channel, proxy) => async (ctx) => {
+  const items = await proxy();
+  ctx.body = await ctx.render('rssfeed.xml.twig', { channel, items });
 };

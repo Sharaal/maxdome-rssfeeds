@@ -1,7 +1,3 @@
-'use strict';
-
-module.exports = (configs) => {
-  return ['get', ['/', (req, res) => {
-    res.render('index.html.twig', { configs });
-  }]];
+export default (configs) => async (ctx) => {
+  ctx.body = await ctx.render('index.html.twig', { configs });
 };

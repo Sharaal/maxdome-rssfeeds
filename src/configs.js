@@ -1,5 +1,3 @@
-'use strict';
-
 const channels = {
   maxdome: (config) => {
     return {
@@ -15,40 +13,32 @@ const proxies = {
     return {
       name: 'maxdome',
       config: Object.assign(
-        { appid: '4a5fa26b', apikey: 'f6cb16de3b67b8b9d64d047a00a9dc55', clienttype: 'Webportal' },
+        { apikey: 'f6cb16de3b67b8b9d64d047a00a9dc55', appid: '4a5fa26b', clienttype: 'Webportal' },
         config
       )
     };
   }
 };
 
-module.exports = [
+export default [
   {
-    rssfeed: {
-      route: '/package-series',
-      channel: channels.maxdome({ area: 'package', title: 'Neue Serien im Paket' })
-    },
+    channel: channels.maxdome({ area: 'package', title: 'Neue Serien im Paket' }),
+    route: '/package-series',
     proxy: proxies.maxdome({ area: 'package', type: 'series' })
   },
   {
-    rssfeed: {
-      route: '/package-movies',
-      channel: channels.maxdome({ area: 'package', title: 'Neue Filme im Paket' })
-    },
+    channel: channels.maxdome({ area: 'package', title: 'Neue Filme im Paket' }),
+    route: '/package-movies',
     proxy: proxies.maxdome({ area: 'package', type: 'movies' })
   },
   {
-    rssfeed: {
-      route: '/store-series',
-      channel: channels.maxdome({ area: 'store', title: 'Neue Serien im Store' })
-    },
+    channel: channels.maxdome({ area: 'store', title: 'Neue Serien im Store' }),
+    route: '/store-series',
     proxy: proxies.maxdome({ area: 'store', type: 'series' })
   },
   {
-    rssfeed: {
-      route: '/store-movies',
-      channel: channels.maxdome({ area: 'store', title: 'Neue Filme im Store' })
-    },
+    channel: channels.maxdome({ area: 'store', title: 'Neue Filme im Store' }),
+    route: '/store-movies',
     proxy: proxies.maxdome({ area: 'store', type: 'movies' })
   }
 ];

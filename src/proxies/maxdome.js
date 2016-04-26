@@ -1,9 +1,7 @@
-'use strict';
+import request from 'request';
 
-const request = require('request');
-
-module.exports = (config) => {
-  return (callback) => {
+export default (config) => async () => {
+  return new Promise((resolve) => {
     const options = {
       url: 'https://heimdall.maxdome.de/interfacemanager-2.1/mxd/assets?filter[]=%type%&filter[]=new&filter[]=notUnlisted&sort[]=activeLicenseStart~desc&filter[]=%area%&appid=%appid%&apikey=%apikey%'
         .replace('%appid%', config.appid)
@@ -13,14 +11,15 @@ module.exports = (config) => {
       headers: { clienttype: config.clienttype, 'Maxdome-Origin': 'de', Accept: 'application/json' }
     };
     request(options, (error, response, body) => {
-      callback(JSON.parse(body).assetList.map((asset) => {
+      const items = JSON.parse(body).assetList.map((asset) => {
         return {
           guid: asset.id,
           title: asset.title,
           link: { package: 'http://www.maxdome.de/%assetId%', store: 'http://store.maxdome.de/%assetId%'}[config.area].replace('%assetId%', asset.id),
           description: asset.descriptionShort
         };
-      }));
+      });
+      resolve(items);
     });
-  };
+  });
 };
