@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>maxdome-rssfeeds</title>
   {%- for config in configs %}
-  <link rel="alternate" type="application/rss+xml" href="{{ config.rssfeed.route }}" title="{{ config.rssfeed.channel.title }}" />
+  <link rel="alternate" type="application/rss+xml" href="{{ config.route }}" title="{{ config.channel.title }}" />
   {%- endfor %}
   <link rel="alternate" type="application/rss+xml" href="http://blog.maxdome.de/feed" title="Maxdome Blog" />
 </head>
@@ -13,7 +13,7 @@
 <h2>Maxdome RSS-Feeds</h2>
 <ul>
   {%- for config in configs %}
-  <li><a href="{{ config.rssfeed.route }}" target="_blank">{{ config.rssfeed.channel.title }}</a></li>
+  <li><a href="{{ config.route }}" target="_blank">{{ config.channel.title }}</a></li>
   {%- endfor %}
   <li><a href="http://blog.maxdome.de/feed" target="_blank">Maxdome Blog</a></li>
 </ul>

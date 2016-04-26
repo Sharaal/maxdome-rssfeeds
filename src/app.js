@@ -1,19 +1,13 @@
-'use strict';
+import co from 'co';
+import Koa from 'koa';
+import render from 'koa-swig';
 
-require('dnewrelic');
+import RssfeedsRouter from './routers/rssfeeds.js';
 
-let app = require('dexpress');
-app.use(require('dheaders'));
-const dhttpAuth = require('dhttp-auth');
-if (dhttpAuth) {
-  app.use(dhttpAuth);
-}
-app.engine('twig', require('swig').renderFile);
-let configs = require('./configs.js');
-let controllers = [require('./controllers/index.js')(configs)];
-let rssfeed = require('./controllers/rssfeed.js');
-let proxies = { maxdome: require('./proxies/maxdome.js') };
-configs.forEach((config) => {
-  controllers.push(rssfeed(config.rssfeed, proxies[config.proxy.name](config.proxy.config)));
-});
-require('dcontrollers')(app, controllers);
+const app = new Koa();
+app.context.render = co.wrap(render({ root: 'views' }));
+const rssfeedsRouter = RssfeedsRouter();
+app
+  .use(rssfeedsRouter.routes())
+  .use(rssfeedsRouter.allowedMethods());
+app.listen(process.env.PORT);
