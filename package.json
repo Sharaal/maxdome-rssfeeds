@@ -7,7 +7,8 @@
   "private": true,
   "readmeFilename": "README.md",
   "scripts": {
-    "start": "babel src -d dest && node dest/app.js"
+    "start": "babel src -d dest && node dest/app.js",
+    "development": "babel src -d dest && node -r dotenv/config dest/app.js"
   },
   "dependencies": {
     "babel-cli": "^6.7.5",
@@ -18,6 +19,9 @@
     "koa-router": "^7.0.1",
     "koa-swig": "^2.2.0",
     "request": "^2.72.0"
+  },
+  "devDependencies": {
+    "dotenv": "^2.0.0"
   },
   "repository": {
     "type": "git",
