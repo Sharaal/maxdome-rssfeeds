@@ -5,8 +5,8 @@ export default (config) => async () => {
     const options = {
       url: 'https://heimdall.maxdome.de/interfacemanager-2.1/mxd/assets?' +
         [
-          'apikey=f6cb16de3b67b8b9d64d047a00a9dc55',
-          'appid=4a5fa26b',
+          'apikey=' + process.env.MAXDOME_APIKEY,
+          'appid=' + process.env.MAXDOME_APPID,
           'filter[]=new',
           'filter[]=notUnlisted',
           'filter[]=' + { package: 'hasPackageContent', store: 'availableWithoutPackage'}[config.area],
