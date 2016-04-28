@@ -9,7 +9,7 @@
   "scripts": {
     "postinstall": "babel src -d dest",
     "start": "node dest/app.js",
-    "development": "babel src -d dest && node -r dotenv/config dest/app.js"
+    "develop": "babel src -d dest && node -r dotenv/config dest/app.js"
   },
   "dependencies": {
     "babel-cli": "^6.7.5",
