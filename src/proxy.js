@@ -21,9 +21,7 @@ export default ({ apikey, appid }) => async ({ area, type }) => {
           guid: asset.id,
           title: asset.title,
           description: asset.descriptionShort,
-          link:
-            { package: 'http://www.maxdome.de/%assetId%', store: 'http://store.maxdome.de/%assetId%'}[area]
-              .replace('%assetId%', asset.id)
+          link: { package: 'http://www.maxdome.de/', store: 'http://store.maxdome.de/'}[area] + asset.id
         };
       });
       resolve(items);
