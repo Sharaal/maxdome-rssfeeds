@@ -6,9 +6,10 @@
   "license": "MIT",
   "private": true,
   "readmeFilename": "README.md",
+  "main": "dest/app.js",
   "scripts": {
     "postinstall": "babel src -d dest",
-    "start": "node dest/app.js",
+    "start": "dthrong",
     "develop": "babel src -d dest && node -r dotenv/config dest/app.js"
   },
   "dependencies": {
@@ -16,6 +17,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.7.7",
     "babel-preset-koa": "^1.0.0",
     "co": "^4.6.0",
+    "dthrong": "^2.3.0",
     "koa": "^2.0.0",
     "koa-router": "^7.0.1",
     "koa-swig": "^2.2.0",
