@@ -7,7 +7,8 @@
   "private": true,
   "readmeFilename": "README.md",
   "scripts": {
-    "start": "babel src -d dest && node dest/app.js",
+    "postinstall": "babel src -d dest",
+    "start": "node dest/app.js",
     "development": "babel src -d dest && node -r dotenv/config dest/app.js"
   },
   "dependencies": {
