@@ -16,7 +16,7 @@ export default ({ apikey, appid }) => async ({ area, type }) => rp.get({
   transform: (data) => data.assetList.map((asset) => {
     return {
       guid: asset.id,
-      title: asset.title,
+      title: asset.title + (asset['@class'] == 'MultiAssetTvSeriesSeason' ? ' (Season ' + asset.number + ')' : ''),
       description: asset.descriptionShort,
       link: { package: 'http://www.maxdome.de/', store: 'http://store.maxdome.de/'}[area] + asset.id
     };
