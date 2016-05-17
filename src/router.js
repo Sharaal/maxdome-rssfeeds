@@ -9,7 +9,8 @@ export default ({ rssfeeds, proxy }) => {
 
   for (const rssfeed of rssfeeds) {
     router.get(rssfeed.route, async (ctx) => {
-      ctx.body = await ctx.render('rssfeed.xml.twig', { channel: rssfeed.channel, items: await proxy(rssfeed.proxy) });
+      const items = await proxy(rssfeed.proxy);
+      ctx.body = await ctx.render('rssfeed.xml.twig', { channel: rssfeed.channel, items });
     });
   }
 
