@@ -29,13 +29,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dragonprojects/maxdome-rssfeeds.git"
-  },
-  "babel": {
-    "plugins": [
-      "transform-es2015-modules-commonjs"
-    ],
-    "presets": [
-      "koa"
-    ]
   }
 }
