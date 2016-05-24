@@ -10,7 +10,8 @@
   "scripts": {
     "postinstall": "babel src -d dest",
     "start": "dthrong",
-    "develop": "babel src -d dest && node -r dotenv/config dest/app.js"
+    "develop": "babel src -d dest && node -r dotenv/config dest/app.js",
+    "lint": "eslint src/**/*.js"
   },
   "dependencies": {
     "babel-cli": "^6.7.5",
@@ -24,7 +25,9 @@
     "request-promise": "^3.0.0"
   },
   "devDependencies": {
-    "dotenv": "^2.0.0"
+    "babel-eslint": "^6.0.4",
+    "dotenv": "^2.0.0",
+    "eslint": "^2.10.2"
   },
   "repository": {
     "type": "git",
