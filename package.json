@@ -8,10 +8,11 @@
   "readmeFilename": "README.md",
   "main": "dest/app.js",
   "scripts": {
-    "postinstall": "babel src -d dest",
-    "start": "dthrong",
-    "develop": "babel src -d dest && node -r dotenv/config dest/app.js",
-    "lint": "eslint src/**/*.js"
+    "postinstall": "npm run transpile",
+    "start": "node dest/app.js",
+    "develop": "npm run lint && npm run transpile && node -r dotenv/config dest/app.js",
+    "lint": "eslint src/**/*.js",
+    "transpile": "babel src -d dest"
   },
   "dependencies": {
     "babel-cli": "^6.7.5",
