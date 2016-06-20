@@ -9,7 +9,7 @@
   "main": "dest/app.js",
   "scripts": {
     "postinstall": "npm run transpile",
-    "start": "node dest/app.js",
+    "start": "dthrong",
     "develop": "npm run transpile && node -r dotenv/config dest/app.js",
     "lint": "eslint src/**/*.js",
     "transpile": "babel src -d dest"
