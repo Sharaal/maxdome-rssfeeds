@@ -11,12 +11,10 @@
     "postinstall": "npm run transpile",
     "start": "dthrong",
     "develop": "npm run transpile && node -r dotenv/config dest/app.js",
-    "lint": "eslint src/**/*.js",
     "transpile": "babel src -d dest"
   },
   "dependencies": {
     "babel-cli": "^6.7.5",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.7.7",
     "babel-preset-koa": "^1.0.0",
     "co": "^4.6.0",
     "dthrong": "^2.3.0",
@@ -26,10 +24,7 @@
     "mxd-heimdall": "^1.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^6.0.4",
-    "dotenv": "^2.0.0",
-    "eslint": "^2.10.2",
-    "eslint-config-airbnb": "^9.0.1"
+    "dotenv": "^2.0.0"
   },
   "repository": {
     "type": "git",

@@ -1,16 +1,12 @@
-import co from 'co';
-import Koa from 'koa';
-import render from 'koa-swig';
-
-import Proxy from './proxy.js';
-import Router from './router.js';
-import rssfeeds from './rssfeeds.js';
-
-const app = new Koa();
-app.context.render = co.wrap(render({ writeBody: false }));
-const router = new Router().getKoaRouter({
-  proxy: new Proxy({ apikey: process.env.HEIMDALL_APIKEY, appid: process.env.HEIMDALL_APPID }),
-  rssfeeds,
+const app = new require('koa')();
+app.context.render = require('co').wrap(require('koa-swig')({ writeBody: false }));
+const heimdall = require('mxd-heimdall').heimdall({
+  apikey: process.env.HEIMDALL_APIKEY,
+  appid: process.env.HEIMDALL_APPID
+});
+const router = require('./router.js')({
+  heimdall,
+  rssfeeds: require('./rssfeeds.js')
 });
 app
   .use(router.routes())
