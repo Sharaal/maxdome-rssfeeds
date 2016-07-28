@@ -7,11 +7,11 @@ export default class Proxy {
 
   async getAssets({ area, type }) {
     const query = (new AssetsQuery())
-        .filter('new')
-        .filter('notUnlisted')
-        .filter({ package: 'hasPackageContent', store: 'availableWithoutPackage' }[area])
-        .filter({ movies: 'movies', seasons: 'seasons' }[type])
-        .sort('activeLicenseStart', 'desc');
+      .filter('new')
+      .filter('notUnlisted')
+      .filter({ package: 'hasPackageContent', store: 'availableWithoutPackage' }[area])
+      .filter({ movies: 'movies', seasons: 'seasons' }[type])
+      .sort('activeLicenseStart', 'desc');
     const assets = await this.heimdall(query);
     return assets.map(asset => {
       return {
