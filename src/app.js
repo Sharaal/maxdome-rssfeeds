@@ -1,4 +1,6 @@
-const app = new require('koa')();
+const Koa = require('koa');
+
+const app = new Koa();
 app.context.render = require('co').wrap(require('koa-swig')({ writeBody: false }));
 const heimdall = require('mxd-heimdall').heimdall({
   apikey: process.env.HEIMDALL_APIKEY,

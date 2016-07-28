@@ -1,5 +1,4 @@
 {
-  "presets": [
-    "koa"
-  ]
+  "plugins": ["transform-strict-mode"],
+  "presets": ["koa"]
 }

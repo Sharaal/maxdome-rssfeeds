@@ -1,7 +1,8 @@
 const AssetsQuery = require('mxd-heimdall').AssetsQuery;
+const KoaRouter = require('koa-router');
 
 module.exports = ({ heimdall, rssfeeds }) => {
-  const router = new require('koa-router')();
+  const router = new KoaRouter();
 
   router.get('/', async ctx => {
     ctx.body = await ctx.render('index.html.twig', { rssfeeds });

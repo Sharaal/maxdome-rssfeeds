@@ -11,11 +11,11 @@ function rssfeed({ area, type }) {
   };
 }
 
-module.eports =
+module.exports =
   [
     { area: 'package', type: 'movies' },
     { area: 'package', type: 'seasons' },
     { area: 'store', type: 'movies' },
-    { area: 'store', type: 'seasons' },
+    { area: 'store', type: 'seasons' }
   ]
   .map(rssfeed);
