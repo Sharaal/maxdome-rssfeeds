@@ -9,7 +9,7 @@ import rssfeeds from './rssfeeds.js';
 const app = new Koa();
 app.context.render = co.wrap(render({ writeBody: false }));
 const router = new Router().getKoaRouter({
-  proxy: new Proxy({ apikey: process.env.MAXDOME_APIKEY, appid: process.env.MAXDOME_APPID }),
+  proxy: new Proxy({ apikey: process.env.HEIMDALL_APIKEY, appid: process.env.HEIMDALL_APPID }),
   rssfeeds,
 });
 app
