@@ -23,7 +23,7 @@
     "koa": "^2.0.0",
     "koa-router": "^7.0.1",
     "koa-swig": "^2.2.0",
-    "request-promise": "^3.0.0"
+    "mxd-heimdall": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",

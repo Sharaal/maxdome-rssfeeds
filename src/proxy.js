@@ -1,8 +1,8 @@
-import AssetsQuery from './proxies/assets-query.js';
+import { AssetsQuery, heimdall } from 'mxd-heimdall';
 
 export default class Proxy {
   constructor({ apikey, appid }) {
-    this.heimdall = require('./proxies/heimdall.js')({ apikey, appid });
+    this.heimdall = heimdall({ apikey, appid });
   }
 
   async getAssets({ area, type }) {
