@@ -2,4 +2,4 @@
 /npm-debug.log*
 
 /dest
-.env
+/.env
