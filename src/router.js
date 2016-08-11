@@ -8,8 +8,16 @@ module.exports = ({ heimdall, rssfeeds }) => {
     ctx.body = await ctx.render('index.html.twig', { rssfeeds });
   });
 
-  for (const rssfeed of rssfeeds) {
-    router.get(rssfeed.route, async ctx => {
+  router
+    .param('rssfeed', async (key, ctx, next) => {
+      if (!rssfeeds[key]) {
+        return ctx.status = 404;
+      }
+      ctx.rssfeed = rssfeeds[key];
+      await next();
+    })
+    .get('/:rssfeed', async ctx => {
+      const rssfeed = ctx.rssfeed;
       const query = (new AssetsQuery())
         .filter('new')
         .filter('notUnlisted')
@@ -27,7 +35,6 @@ module.exports = ({ heimdall, rssfeeds }) => {
       });
       ctx.body = await ctx.render('rssfeed.xml.twig', { channel: rssfeed.channel, items });
     });
-  }
 
   return router;
 };

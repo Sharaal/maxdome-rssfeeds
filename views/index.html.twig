@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>maxdome-rssfeeds</title>
-  {%- for rssfeed in rssfeeds %}
-  <link rel="alternate" type="application/rss+xml" href="{{ rssfeed.route }}" title="{{ rssfeed.channel.title }}" />
+  {%- for key, rssfeed in rssfeeds %}
+  <link rel="alternate" type="application/rss+xml" href="/{{ key }}" title="{{ rssfeed.channel.title }}" />
   {%- endfor %}
   <link rel="alternate" type="application/rss+xml" href="http://blog.maxdome.de/feed" title="maxdome Blog" />
 </head>
 <body>
 <h2>maxdome RSS-Feeds</h2>
 <ul>
-  {%- for rssfeed in rssfeeds %}
-  <li><a href="{{ rssfeed.route }}" target="_blank">{{ rssfeed.channel.title }}</a></li>
+  {%- for key, rssfeed in rssfeeds %}
+  <li><a href="/{{ key }}" target="_blank">{{ rssfeed.channel.title }}</a></li>
   {%- endfor %}
   <li><a href="http://blog.maxdome.de/feed" target="_blank">maxdome Blog</a></li>
 </ul>
