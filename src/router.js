@@ -24,7 +24,7 @@ module.exports = ({ heimdall, rssfeeds }) => {
         .filter({ package: 'hasPackageContent', store: 'availableWithoutPackage' }[rssfeed.area])
         .filter({ movies: 'movies', seasons: 'seasons' }[rssfeed.type])
         .sort('activeLicenseStart', 'desc');
-      const assets = await heimdall(query);
+      const assets = await heimdall.getAssets(query);
       const items = assets.map(asset => {
         return {
           guid: asset.id,
