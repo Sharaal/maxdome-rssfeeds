@@ -3,6 +3,15 @@
   "description": "",
   "version": "1.0.0",
   "homepage": "http://github.com/dragonprojects/maxdome-rssfeeds",
+  "author": {
+    "name": "Sharaal",
+    "email": "developer@dragonprojects.de",
+    "url": "http://dragonprojects.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dragonprojects/maxdome-rssfeeds.git"
+  },
   "license": "MIT",
   "private": true,
   "readmeFilename": "README.md",
@@ -26,9 +35,5 @@
   },
   "devDependencies": {
     "dotenv": "^2.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dragonprojects/maxdome-rssfeeds.git"
   }
 }
