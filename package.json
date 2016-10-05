@@ -15,12 +15,11 @@
   "license": "MIT",
   "private": true,
   "readmeFilename": "README.md",
-  "main": "dest/app.js",
   "scripts": {
-    "postinstall": "npm run transpile",
+    "postinstall": "npm run build",
     "start": "dthrong",
-    "develop": "npm run transpile && node -r dotenv/config dest/app.js",
-    "transpile": "babel src -d dest"
+    "develop": "npm run build && node -r dotenv/config dest/app.js",
+    "build": "babel src -d dest"
   },
   "dependencies": {
     "babel-cli": "^6.7.5",
