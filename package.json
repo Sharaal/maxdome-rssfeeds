@@ -1,7 +1,8 @@
 {
+  "private": true,
   "name": "maxdome-rssfeeds",
-  "description": "",
   "version": "1.0.0",
+  "description": "",
   "homepage": "http://github.com/dragonprojects/maxdome-rssfeeds",
   "author": {
     "name": "Sharaal",
@@ -12,8 +13,6 @@
     "type": "git",
     "url": "https://github.com/dragonprojects/maxdome-rssfeeds.git"
   },
-  "license": "MIT",
-  "private": true,
   "readmeFilename": "README.md",
   "scripts": {
     "postinstall": "npm run build",
