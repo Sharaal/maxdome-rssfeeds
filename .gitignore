@@ -1,5 +1,4 @@
-/node_modules
-/npm-debug.log*
-
 /dest
+/node_modules
 /.env
+/npm-debug.log*
