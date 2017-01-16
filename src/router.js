@@ -64,8 +64,9 @@ export default ({ cache, heimdall, rssfeeds }) => {
         'rssfeed.xml.twig',
         {
           channel: rssfeed.channel,
+          host: ctx.request.header.host,
           items,
-          link: `http://${ctx.request.header.host}${ctx.request.url}`,
+          url: ctx.request.url,
         }
       );
       ctx.type = 'application/rss+xml';
