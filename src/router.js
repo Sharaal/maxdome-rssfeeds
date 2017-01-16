@@ -66,7 +66,7 @@ export default ({ cache, heimdall, rssfeeds }) => {
         {
           channel: rssfeed.channel,
           items,
-          link: `http://${ctx.request.header.host}${ctx.request.url}`,
+          link: `${ctx.req.secure ? 'https' : 'http'}://${ctx.request.header.host}${ctx.request.url}`,
         }
       );
       ctx.type = 'application/rss+xml';
