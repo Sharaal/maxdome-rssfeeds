@@ -52,11 +52,12 @@ export default ({ cache, heimdall, rssfeeds }) => {
             process.env.IMDB_RATING_EXPIRE
           );
         }
+        const link = { package: 'http://www.maxdome.de/', store: 'http://store.maxdome.de/' }[rssfeed.area] + asset.id;
         items.push({
-          guid: asset.id,
+          guid: link,
           title: asset.title + (rating && rating !== 'N/A' ? ` (${rating})` : ''),
           description: asset.description,
-          link: { package: 'http://www.maxdome.de/', store: 'http://store.maxdome.de/' }[rssfeed.area] + asset.id,
+          link: link,
         });
       }
 
@@ -64,9 +65,8 @@ export default ({ cache, heimdall, rssfeeds }) => {
         'rssfeed.xml.twig',
         {
           channel: rssfeed.channel,
-          host: ctx.request.header.host,
           items,
-          url: ctx.request.url,
+          link: `http://${ctx.request.header.host}${ctx.request.url}`,
         }
       );
       ctx.type = 'application/rss+xml';
