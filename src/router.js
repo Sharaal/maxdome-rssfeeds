@@ -60,7 +60,15 @@ export default ({ cache, heimdall, rssfeeds }) => {
         });
       }
 
-      ctx.body = await ctx.render('rssfeed.xml.twig', { channel: rssfeed.channel, items });
+      ctx.body = await ctx.render(
+        'rssfeed.xml.twig',
+        {
+          channel: rssfeed.channel,
+          items,
+          link: `http://${ctx.request.header.host}${ctx.request.url}`,
+        }
+      );
+      ctx.type = 'application/rss+xml';
     });
 
   return router;
