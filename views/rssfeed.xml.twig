@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <ttl>30</ttl>
     <title>{{ channel.title }}</title>
     <atom:link href="{{ link }}" rel="self" type="application/rss+xml" />
     <description></description>
@@ -13,7 +12,6 @@
       <title>{{ item.title }}</title>
       <description>{{ item.description }}</description>
       <link>{{ item.link }}</link>
-      <pubDate>2016-05-23T00:00:00.0Z</pubDate>
     </item>
     {%- endfor %}
   </channel>
