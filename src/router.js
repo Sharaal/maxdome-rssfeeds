@@ -1,13 +1,13 @@
 /* eslint no-param-reassign: "off" */
 
-import imdb from 'imdb-api';
-import { AssetsQuery } from 'mxd-heimdall';
-import KoaRouter from 'koa-router';
+const imdb = require('imdb-api');
+const { AssetsQuery } = require('mxd-heimdall');
+const KoaRouter = require('koa-router');
 
-export default ({ cache, heimdall, rssfeeds }) => {
+module.exports = ({ cache, heimdall, rssfeeds }) => {
   const router = new KoaRouter();
 
-  router.get('/', async (ctx) => {
+  router.get('/', async ctx => {
     ctx.body = await ctx.render('index.html.twig', { rssfeeds });
   });
 
@@ -20,13 +20,17 @@ export default ({ cache, heimdall, rssfeeds }) => {
         ctx.status = 404;
       }
     })
-    .get('/:rssfeed', async (ctx) => {
+    .get('/:rssfeed', async ctx => {
       const rssfeed = ctx.rssfeed;
 
-      const query = (new AssetsQuery())
+      const query = new AssetsQuery()
         .filter('new')
         .filter('notUnlisted')
-        .filter({ package: 'hasPackageContent', store: 'availableWithoutPackage' }[rssfeed.area])
+        .filter(
+          { package: 'hasPackageContent', store: 'availableWithoutPackage' }[
+            rssfeed.area
+          ]
+        )
         .filter({ movies: 'movies', seasons: 'seasons' }[rssfeed.type])
         .sort('activeLicenseStart', 'desc');
       const assets = await heimdall.getAssets(query);
@@ -37,38 +41,41 @@ export default ({ cache, heimdall, rssfeeds }) => {
         if (process.env.IMDB_RATING) {
           rating = await cache(
             `IMDB_RATING:${asset.id}`,
-            () => new Promise((resolve) => {
-              const originalTitle = asset.title
-                .replace(' (Hot from the US)', '')
-                .replace(/ \(Season .*\)/, '');
-              imdb.get(originalTitle, (err, data) => {
-                if (err) {
-                  resolve('N/A');
-                } else {
-                  resolve(data.rating);
-                }
-              });
-            }),
+            () =>
+              new Promise(resolve => {
+                const originalTitle = asset.title
+                  .replace(' (Hot from the US)', '')
+                  .replace(/ \(Season .*\)/, '');
+                imdb.get(originalTitle, (err, data) => {
+                  if (err) {
+                    resolve('N/A');
+                  } else {
+                    resolve(data.rating);
+                  }
+                });
+              }),
             process.env.IMDB_RATING_EXPIRE
           );
         }
-        const link = { package: 'http://www.maxdome.de/', store: 'http://store.maxdome.de/' }[rssfeed.area] + asset.id;
+        const link =
+          {
+            package: 'http://www.maxdome.de/',
+            store: 'http://store.maxdome.de/',
+          }[rssfeed.area] + asset.id;
         items.push({
           guid: link,
-          title: asset.title + (rating && rating !== 'N/A' ? ` (${rating})` : ''),
+          title: asset.title +
+            (rating && rating !== 'N/A' ? ` (${rating})` : ''),
           description: asset.description,
           link: link,
         });
       }
 
-      ctx.body = await ctx.render(
-        'rssfeed.xml.twig',
-        {
-          channel: rssfeed.channel,
-          items,
-          link: `https://${ctx.request.header.host}${ctx.request.url}`,
-        }
-      );
+      ctx.body = await ctx.render('rssfeed.xml.twig', {
+        channel: rssfeed.channel,
+        items,
+        link: `https://${ctx.request.header.host}${ctx.request.url}`,
+      });
       ctx.type = 'application/rss+xml';
     });
 
