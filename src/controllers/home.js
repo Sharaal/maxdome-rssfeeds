@@ -3,7 +3,11 @@ module.exports = ({ maxdome, rssfeeds }) => [
   [
     '/',
     async (req, res) => {
-      res.render('home.html.twig', { link: req.originalUrl, rssfeeds });
+      let link = '';
+      if (req.originalUrl !== '/') {
+        link = req.originalUrl;
+      }
+      res.render('home.html.twig', { link, rssfeeds });
     },
   ],
 ];
