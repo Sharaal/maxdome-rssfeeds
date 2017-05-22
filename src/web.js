@@ -3,6 +3,7 @@ require('dotenv-safe').config();
 const app = require('express')();
 app.disable('x-powered-by');
 app.engine('twig', require('swig').renderFile);
+app.set('views', require('path').join(__dirname, '../views'));
 
 require('@dnode/middlewares')(app, []);
 

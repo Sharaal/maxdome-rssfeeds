@@ -35,7 +35,7 @@ module.exports = ({ maxdome, rssfeeds }) => [
       res.render('rssfeed.xml.twig', {
         channel: rssfeed.channel,
         items,
-        link: req.url,
+        link: req.originalUrl,
       });
     },
   ],
