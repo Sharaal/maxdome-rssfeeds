@@ -1,40 +1,23 @@
 {
-  "private": true,
+  "engines": {
+    "node": "^7.6.0"
+  },
   "name": "maxdome-rssfeeds",
   "version": "1.0.0",
   "description": "Generate RSS feeds for new movies/seasons on maxdome",
-  "license": "UNLICENSED",
-  "homepage": "http://github.com/dragonprojects/maxdome-rssfeeds",
-  "author": {
-    "name": "Sharaal",
-    "email": "developer@dragonprojects.de",
-    "url": "http://dragonprojects.de"
+  "publishConfig": {
+    "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dragonprojects/maxdome-rssfeeds.git"
-  },
-  "readmeFilename": "README.md",
   "scripts": {
-    "develop": "nodemon src/web.js",
-    "fmt": "dprettier",
     "start": "node src/web.js"
   },
-  "engines": {
-    "node": "7.6.x"
-  },
   "dependencies": {
-    "co": "^4.6.0",
+    "@dnode/controllers": "^1.0.0",
+    "@dnode/middlewares": "^1.0.1",
+    "@dnode/request-maxdome": "^1.0.2",
     "dotenv-safe": "^4.0.4",
-    "imdb-api": "^2.2.0",
-    "koa": "^2.0.0",
-    "koa-router": "^7.0.1",
-    "koa-swig": "^2.2.0",
-    "mxd-heimdall": "^2.0.0",
-    "redis": "^2.6.2"
+    "express": "^4.15.3",
+    "swig": "^1.4.2"
   },
-  "devDependencies": {
-    "dprettier": "^1.1.0",
-    "nodemon": "^1.11.0"
-  }
+  "devDependencies": {}
 }
