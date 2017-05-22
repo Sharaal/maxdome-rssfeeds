@@ -2,12 +2,13 @@
   "engines": {
     "node": "^7.6.0"
   },
-  "name": "maxdome-rssfeeds",
+  "name": "@dragonprojects/maxdome-rssfeeds",
   "version": "1.0.0",
   "description": "Generate RSS feeds for new movies/seasons on maxdome",
   "publishConfig": {
     "access": "public"
   },
+  "main": "src/web.js",
   "scripts": {
     "start": "node src/web.js"
   },
