@@ -4,11 +4,11 @@ module.exports = ({ maxdome, rssfeeds }) => [
     '/',
     async (req, res) => {
       const host = req.get('host');
-      let link = '';
+      let url = '';
       if (req.originalUrl !== '/') {
-        link = req.originalUrl;
+        url = req.originalUrl;
       }
-      res.render('home.html.twig', { host, link, rssfeeds });
+      res.render('home.html.twig', { host, url, rssfeeds });
     },
   ],
 ];

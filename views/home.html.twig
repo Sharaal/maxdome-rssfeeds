@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>maxdome-rssfeeds</title>
   {%- for key, rssfeed in rssfeeds %}
-  <link rel="alternate" type="application/rss+xml" href="{{ link }}/{{ key }}" title="{{ rssfeed.channel.title }}" />
+  <link rel="alternate" type="application/rss+xml" href="{{ url }}/{{ key }}" title="{{ rssfeed.channel.title }}" />
   {%- endfor %}
   <link rel="alternate" type="application/rss+xml" href="http://blog.maxdome.de/feed" title="maxdome Blog" />
 </head>
@@ -13,7 +13,7 @@
 <h2>maxdome RSS-Feeds</h2>
 <ul>
   {%- for key, rssfeed in rssfeeds %}
-  <li><a href="{{ link }}/{{ key }}">{{ rssfeed.channel.title }}</a></li>
+  <li><a href="{{ url }}/{{ key }}">{{ rssfeed.channel.title }}</a></li>
   {%- endfor %}
   <li><a href="http://blog.maxdome.de/feed">maxdome Blog</a></li>
 </ul>
@@ -22,7 +22,7 @@
 <ol>
   <li>Besuche <a href="http://feedly.com/">http://feedly.com/</a></li>
   <li>Registriere dich und/oder melde dich an</li>
-  <li>Besuche <a href="http://feedly.com/i/spotlight/{{ host }}{{ link }}">http://feedly.com/i/spotlight/{{ host }}{{ link }}</a> oder klicke auf "Add Content" und füge "<a href="http://{{ host }}{{ link }}">http://{{ host }}{{ link }}</a>" ein</li>
+  <li>Besuche <a href="http://feedly.com/i/spotlight/{{ host }}{{ url }}">http://feedly.com/i/spotlight/{{ host }}{{ url }}</a> oder klicke auf "Add Content" und füge "<a href="http://{{ host }}{{ url }}">http://{{ host }}{{ url }}</a>" ein</li>
   <li>Wähle die RSS-Feeds bei welchen du auf dem neusten Stand sein willst</li>
 </ol>
 <h3>Smartphone</h3>

@@ -32,14 +32,16 @@ module.exports = ({ maxdome, rssfeeds }) => [
       }));
 
       res.set('Content-Type', 'application/rss+xml');
-      let link = '';
+      const host = req.get('host');
+      let url = '';
       if (req.originalUrl !== '/') {
-        link = req.originalUrl;
+        url = req.originalUrl;
       }
       res.render('rssfeed.xml.twig', {
         channel: rssfeed.channel,
+        host,
         items,
-        link,
+        url,
       });
     },
   ],
