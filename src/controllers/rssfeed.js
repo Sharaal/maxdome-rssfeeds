@@ -1,4 +1,4 @@
-const AssetsQueryOptions = require('@dnode/request-maxdome').AssetsQueryOptions;
+const { AssetsQueryOptions } = require('@dnode/request-maxdome');
 
 module.exports = ({ maxdome, rssfeeds }) => [
   'get',
