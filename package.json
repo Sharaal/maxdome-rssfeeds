@@ -3,7 +3,7 @@
     "node": "^7.6.0"
   },
   "name": "@dragonprojects/maxdome-rssfeeds",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Generate RSS feeds for new movies/seasons on maxdome",
   "repository": "sharaal/maxdome-rssfeeds",
   "license": "UNLICENSED",
