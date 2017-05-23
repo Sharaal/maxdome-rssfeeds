@@ -3,7 +3,7 @@
     "node": "^7.6.0"
   },
   "name": "@dragonprojects/maxdome-rssfeeds",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Generate RSS feeds for new movies/seasons on maxdome",
   "publishConfig": {
     "access": "public"
