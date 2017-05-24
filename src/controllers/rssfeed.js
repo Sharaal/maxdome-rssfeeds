@@ -24,12 +24,20 @@ module.exports = ({ maxdome, rssfeeds }) => [
 
       const assets = await maxdome.request('assets').send(assetsQueryOptions);
 
-      const items = assets.map(asset => ({
-        guid: asset.link,
-        title: asset.title,
-        description: asset.description,
-        link: asset.link,
-      }));
+      const items = assets
+        .filter(asset => {
+          const hotFrom = asset.hotFromTheUK || asset.hotFromTheUS;
+          if (rssfeed.hotFrom) {
+            return hotFrom;
+          }
+          return !hotFrom;
+        })
+        .map(asset => ({
+          guid: asset.link,
+          title: asset.title,
+          description: asset.description,
+          link: asset.link,
+        }));
 
       res.set('Content-Type', 'application/rss+xml');
       const host = req.get('host');
