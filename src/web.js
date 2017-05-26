@@ -7,7 +7,14 @@ app.set('views', require('path').join(__dirname, '../views'));
 
 require('@dnode/middlewares')(app, []);
 
-const maxdome = require('@dnode/request-maxdome').getRequestBuilder();
+const maxdome = require('@dnode/request-maxdome').getRequestBuilder({
+  maxdomeOptions: {
+    apikey: process.env.MAXDOME_APIKEY,
+    appid: process.env.MAXDOME_APPID,
+    hostname: process.env.MAXDOME_HOSTNAME,
+    protocol: process.env.MAXDOME_PROTOCOL,
+  }
+});
 const rssfeeds = require('./rssfeeds');
 
 require('@dnode/controllers')(app, [
