@@ -13,7 +13,7 @@ const maxdome = require('@dnode/request-maxdome').getRequestBuilder({
     appid: process.env.MAXDOME_APPID,
     hostname: process.env.MAXDOME_HOSTNAME,
     protocol: process.env.MAXDOME_PROTOCOL,
-  }
+  },
 });
 const rssfeeds = require('./rssfeeds');
 
