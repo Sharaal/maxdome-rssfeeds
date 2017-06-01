@@ -17,7 +17,7 @@
   "dependencies": {
     "@dnode/controllers": "^1.0.0",
     "@dnode/middlewares": "^1.0.1",
-    "@dnode/request-maxdome": "^2.0.0",
+    "@dnode/request-maxdome": "^2.0.1",
     "dotenv-safe": "^4.0.4",
     "express": "^4.15.3",
     "swig": "^1.4.2"
