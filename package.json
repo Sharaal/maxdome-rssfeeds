@@ -14,7 +14,7 @@
   "dependencies": {
     "@dnode/request-maxdome": "^2.0.1",
     "@dnode/swig": "^1.0.0",
-    "@dnode/web": "^1.4.1",
+    "@dnode/web": "^2.0.0",
     "rss": "^1.2.2"
   }
 }
