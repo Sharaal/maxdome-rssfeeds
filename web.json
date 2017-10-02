@@ -1,0 +1,11 @@
+{
+  "controllers": [
+    "./src/controllers/home",
+    "./src/controllers/rssfeed"
+  ],
+  "services": {
+    "maxdome": "@dnode/request-maxdome",
+    "rssfeeds": "./src/services/rssfeeds",
+    "swig": "@dnode/swig"
+  }
+}

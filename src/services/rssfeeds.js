@@ -15,7 +15,7 @@ function rssfeed({ area, hotFrom, type }) {
   };
 }
 
-module.exports = {
+module.exports = () => ({
   'package-movies': rssfeed({ area: 'package', type: 'movies' }),
   'package-seasons': rssfeed({ area: 'package', type: 'seasons' }),
   'package-seasons-hotfrom': rssfeed({
@@ -30,4 +30,4 @@ module.exports = {
     hotFrom: true,
     type: 'seasons',
   }),
-};
+});

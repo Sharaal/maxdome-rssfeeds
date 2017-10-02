@@ -1,4 +1,5 @@
 {
+  "private": true,
   "engines": {
     "node": "^7.6.0"
   },
@@ -7,21 +8,13 @@
   "description": "Generate RSS feeds for new movies/seasons on maxdome",
   "repository": "sharaal/maxdome-rssfeeds",
   "license": "UNLICENSED",
-  "publishConfig": {
-    "access": "public"
-  },
-  "main": "src/web.js",
   "scripts": {
-    "start": "node src/web.js"
+    "start": "dnode-web"
   },
   "dependencies": {
-    "@dnode/controllers": "^1.0.0",
-    "@dnode/middlewares": "^1.0.1",
     "@dnode/request-maxdome": "^2.0.1",
-    "dotenv-safe": "^4.0.4",
-    "express": "^4.15.3",
-    "rss": "^1.2.2",
-    "swig": "^1.4.2"
-  },
-  "devDependencies": {}
+    "@dnode/swig": "^1.0.0",
+    "@dnode/web": "^1.4.1",
+    "rss": "^1.2.2"
+  }
 }
