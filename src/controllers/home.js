@@ -1,4 +1,4 @@
-module.exports = ({ maxdome, rssfeeds }) => [
+module.exports = ({ rssfeeds }) => [
   'get',
   [
     '/',
