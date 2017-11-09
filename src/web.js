@@ -1,5 +1,5 @@
 require('@dnode/env');
-require('@dnode/express')(async app => {
+require('@dnode/express')(app => {
   require('@dnode/swig')({ app });
 
   let cache;
