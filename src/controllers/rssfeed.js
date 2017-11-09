@@ -1,7 +1,8 @@
 const { AssetsQueryOptions } = require('@dnode/request-maxdome');
+const imdb = require('imdb-api');
 const RSS = require('rss');
 
-module.exports = ({ maxdome, rssfeeds }) => [
+module.exports = ({ cache, imdbApiKey, maxdome, rssfeeds }) => [
   'get',
   [
     '/:rssfeed',
@@ -19,13 +20,36 @@ module.exports = ({ maxdome, rssfeeds }) => [
         .addFilter({ movies: 'movies', seasons: 'seasons' }[rssfeed.type])
         .addSort('activeLicenseStart', 'desc');
 
-      const assets = (await maxdome.request('assets').send(assetsQueryOptions)).filter(asset => {
+      let assets = (await maxdome.request('assets').send(assetsQueryOptions)).filter(asset => {
         const hotFrom = asset.hotFromTheUK || asset.hotFromTheUS;
         if (rssfeed.hotFrom) {
           return hotFrom;
         }
         return !hotFrom;
       });
+
+      if (imdbApiKey) {
+        assets = await Promise.all(assets.map(async asset => {
+          const data = await cache(
+            `IMDB:${asset.id}`,
+            async () => {
+              try {
+                const search = await imdb.search({ title: asset.searchTitle }, { apiKey: imdbApiKey });
+                if (!search.results.length) {
+                  throw new Error('missing search result');
+                }
+                return await imdb.getById(search.results[0].imdbid, { apiKey: imdbApiKey });
+              } catch (e) {
+                return {};
+              }
+            }
+          );
+          if (data.rating && data.rating !== 'N/A') {
+            asset.title += ` (${data.rating})`;
+          }
+          return asset;
+        }));
+      }
 
       const host = req.get('host');
       let url = '';
