@@ -2,7 +2,7 @@ const { AssetsQueryOptions } = require('@dnode/request-maxdome');
 const imdb = require('imdb-api');
 const RSS = require('rss');
 
-module.exports = ({ cache, imdbApiKey, maxdome, rssfeeds }) => [
+module.exports = ({ cache, imdbApiKey, imdbApiTimeout, maxdome, rssfeeds }) => [
   'get',
   [
     '/:rssfeed',
