@@ -70,8 +70,8 @@ module.exports = ({ cache, imdbApiKey, maxdome, rssfeeds }) => [
         feed.item({
           title: asset.title,
           description: asset.description,
-          url: asset.link,
-          guid: asset.link,
+          url: asset.url,
+          guid: asset.url,
         });
       }
 
