@@ -15,9 +15,9 @@
     "@dnode/cache": "^1.2.0",
     "@dnode/controllers": "^1.0.5",
     "@dnode/env": "^1.0.0",
-    "@dnode/express": "^1.0.1",
+    "@dnode/express": "^1.1.0",
     "@dnode/redis": "^1.0.5",
-    "@dnode/request-maxdome": "^2.0.1",
+    "@dnode/request-maxdome": "^4.3.0",
     "@dnode/swig": "^1.0.0",
     "imdb-api": "^3.1.2",
     "rss": "^1.2.2"

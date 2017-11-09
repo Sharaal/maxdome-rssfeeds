@@ -7,7 +7,7 @@ require('@dnode/express')(app => {
   if (imdbApiKey) {
     cache = require('@dnode/cache')(require('@dnode/redis')(process.env.REDIS_URL));
   }
-  const maxdome = require('@dnode/request-maxdome')();
+  const maxdome = require('@dnode/request-maxdome').getRequestBuilder();
   const rssfeeds = require('./rssfeeds')();
 
   require('@dnode/controllers')(app, [
