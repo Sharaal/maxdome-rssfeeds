@@ -12,6 +12,12 @@ require('@dnode/express')(app => {
 
   require('@dnode/controllers')(app, [
     require('./controllers/home')({ rssfeeds }),
-    require('./controllers/rssfeed')({ maxdome, cache, imdbApiKey, rssfeeds }),
+    require('./controllers/rssfeed')({
+      maxdome,
+      cache,
+      imdbApiKey,
+      imdbApiTimeout: process.env.IMDB_API_TIMEOUT || 5000,
+      rssfeeds,
+    }),
   ]);
 });

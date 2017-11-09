@@ -29,26 +29,28 @@ module.exports = ({ cache, imdbApiKey, maxdome, rssfeeds }) => [
       });
 
       if (imdbApiKey) {
-        assets = await Promise.all(assets.map(async asset => {
-          const data = await cache(
-            `IMDB:${asset.id}`,
-            async () => {
+        assets = await Promise.all(
+          assets.map(async asset => {
+            const data = await cache(`IMDB:${asset.id}`, async () => {
               try {
-                const search = await imdb.search({ title: asset.searchTitle }, { apiKey: imdbApiKey });
+                const search = await imdb.search(
+                  { title: asset.searchTitle },
+                  { apiKey: imdbApiKey, timeout: imdbApiTimeout }
+                );
                 if (!search.results.length) {
                   throw new Error('missing search result');
                 }
-                return await imdb.getById(search.results[0].imdbid, { apiKey: imdbApiKey });
+                return await imdb.getById(search.results[0].imdbid, { apiKey: imdbApiKey, timeout: imdbApiTimeout });
               } catch (e) {
                 return {};
               }
+            });
+            if (data.rating && data.rating !== 'N/A') {
+              asset.title += ` (${data.rating})`;
             }
-          );
-          if (data.rating && data.rating !== 'N/A') {
-            asset.title += ` (${data.rating})`;
-          }
-          return asset;
-        }));
+            return asset;
+          })
+        );
       }
 
       const host = req.get('host');
