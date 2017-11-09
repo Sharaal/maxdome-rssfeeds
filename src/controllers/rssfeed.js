@@ -71,7 +71,6 @@ module.exports = ({ cache, imdbApiKey, imdbApiTimeout, maxdome, rssfeeds }) => [
           title: asset.title,
           description: asset.description,
           url: asset.url,
-          guid: asset.url,
         });
       }
 
