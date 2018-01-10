@@ -1,4 +1,4 @@
-# Dependencies: 202
+# Dependencies: 141
 
 - @dnode
   - cache
@@ -6,65 +6,11 @@
   - dependencies-badge
   - env
   - express
-    - accepts
-    - content-type
-    - debug
-    - depd
-    - etag
-    - express
-    - finalhandler
-    - forwarded
-    - fresh
-    - http-errors
-      - setprototypeof
-    - ipaddr.js
-    - mime
-    - mime-db
-    - mime-types
-    - parseurl
-    - proxy-addr
-    - qs
-    - safe-buffer
-    - send
-    - serve-static
-    - setprototypeof
-    - utils-merge
-    - vary
   - handler
-  - middlewares
   - redis
   - request
   - request-maxdome
   - swig
-  - web
-    - @dnode
-      - controllers
-      - handler
-      - middlewares
-    - accepts
-    - content-type
-    - debug
-    - depd
-    - etag
-    - express
-    - finalhandler
-    - forwarded
-    - fresh
-    - http-errors
-      - setprototypeof
-    - ipaddr.js
-    - mime
-    - mime-db
-    - mime-types
-    - parseurl
-    - proxy-addr
-    - qs
-    - safe-buffer
-    - send
-    - serve-static
-    - setprototypeof
-    - utils-merge
-    - vary
 - accepts
 - ajv
 - amdefine
@@ -78,11 +24,6 @@
 - bcrypt-pbkdf
 - bluebird
 - body-parser
-  - content-type
-  - debug
-  - depd
-  - http-errors
-  - qs
 - boom
 - bytes
 - camelcase
@@ -93,9 +34,10 @@
 - content-type
 - cookie
 - cookie-signature
+- core-util-is
 - cryptiles
+  - boom
 - dashdash
-  - assert-plus
 - debug
 - decamelize
 - delayed-stream
@@ -113,18 +55,20 @@
 - express
 - extend
 - extsprintf
+- fast-deep-equal
+- fast-json-stable-stringify
 - finalhandler
 - forever-agent
 - form-data
 - forwarded
 - fresh
 - getpass
-  - assert-plus
 - har-schema
 - har-validator
 - hawk
 - hoek
 - http-errors
+  - setprototypeof
 - http-signature
 - iconv-lite
 - imdb-api
@@ -132,14 +76,11 @@
 - ipaddr.js
 - is-typedarray
 - isstream
-- jodid25519
 - jsbn
 - json-schema
-- json-stable-stringify
+- json-schema-traverse
 - json-stringify-safe
-- jsonify
 - jsprim
-  - assert-plus
 - lodash
 - lodash.clonedeep
 - lodash.isarray
@@ -164,8 +105,6 @@
 - qs
 - range-parser
 - raw-body
-  - depd
-  - http-errors
 - redis
 - redis-commands
 - redis-parser
@@ -182,7 +121,6 @@
 - sntp
 - source-map
 - sshpk
-  - assert-plus
 - statuses
 - stealthy-require
 - stringstream
