@@ -1,7 +1,7 @@
 # Dependencies
 
 Directly: 10
-Indirectly: 310
+Indirectly: 136
 
 - [@dnode/cache](https://www.npmjs.com/package/@dnode/cache)
 - [@dnode/controllers](https://www.npmjs.com/package/@dnode/controllers)
