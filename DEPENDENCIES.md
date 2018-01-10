@@ -1,144 +1,144 @@
 # Dependencies: 141
 
 - @dnode
-  - cache
-  - controllers
-  - dependencies-badge
-  - env
-  - express
-  - handler
-  - redis
-  - request
-  - request-maxdome
-  - swig
-- accepts
-- ajv
-- amdefine
-- array-flatten
-- asn1
-- assert-plus
-- async
-- asynckit
-- aws-sign2
-- aws4
-- bcrypt-pbkdf
-- bluebird
-- body-parser
-- boom
-- bytes
-- camelcase
-- caseless
-- co
-- combined-stream
-- content-disposition
-- content-type
-- cookie
-- cookie-signature
-- core-util-is
-- cryptiles
-  - boom
-- dashdash
-- debug
-- decamelize
-- delayed-stream
-- depd
-- destroy
-- dotenv
-- dotenv-safe
-- double-ended-queue
-- ecc-jsbn
-- ee-first
-- encodeurl
-- es6-promise
-- escape-html
-- etag
-- express
-- extend
-- extsprintf
-- fast-deep-equal
-- fast-json-stable-stringify
-- finalhandler
-- forever-agent
-- form-data
-- forwarded
-- fresh
-- getpass
-- har-schema
-- har-validator
-- hawk
-- hoek
-- http-errors
-  - setprototypeof
-- http-signature
-- iconv-lite
-- imdb-api
-- inherits
-- ipaddr.js
-- is-typedarray
-- isstream
-- jsbn
-- json-schema
-- json-schema-traverse
-- json-stringify-safe
-- jsprim
-- lodash
-- lodash.clonedeep
-- lodash.isarray
-- lodash.mergewith
-- media-typer
-- merge-descriptors
-- methods
-- mime
-- mime-db
-- mime-types
-- minimist
-- ms
-- negotiator
-- oauth-sign
-- on-finished
-- optimist
-- parseurl
-- path-to-regexp
-- performance-now
-- proxy-addr
-- punycode
-- qs
-- range-parser
-- raw-body
-- redis
-- redis-commands
-- redis-parser
-- request
-- request-promise
-- request-promise-core
-- rss
-  - mime-db
-  - mime-types
-- safe-buffer
-- send
-- serve-static
-- setprototypeof
-- sntp
-- source-map
-- sshpk
-- statuses
-- stealthy-require
-- stringstream
-- swig
-- tough-cookie
-- tunnel-agent
-- tweetnacl
-- type-is
-- uglify-js
-- uglify-to-browserify
-- unpipe
-- urijs
-- utils-merge
-- uuid
-- vary
-- verror
-- window-size
-- wordwrap
-- xml
-- yargs
-  - wordwrap
+  - [cache](https://www.npmjs.com/package/@dnode/cache)
+  - [controllers](https://www.npmjs.com/package/@dnode/controllers)
+  - [dependencies-badge](https://www.npmjs.com/package/@dnode/dependencies-badge)
+  - [env](https://www.npmjs.com/package/@dnode/env)
+  - [express](https://www.npmjs.com/package/@dnode/express)
+  - [handler](https://www.npmjs.com/package/@dnode/handler)
+  - [redis](https://www.npmjs.com/package/@dnode/redis)
+  - [request](https://www.npmjs.com/package/@dnode/request)
+  - [request-maxdome](https://www.npmjs.com/package/@dnode/request-maxdome)
+  - [swig](https://www.npmjs.com/package/@dnode/swig)
+- [accepts](https://www.npmjs.com/package/accepts)
+- [ajv](https://www.npmjs.com/package/ajv)
+- [amdefine](https://www.npmjs.com/package/amdefine)
+- [array-flatten](https://www.npmjs.com/package/array-flatten)
+- [asn1](https://www.npmjs.com/package/asn1)
+- [assert-plus](https://www.npmjs.com/package/assert-plus)
+- [async](https://www.npmjs.com/package/async)
+- [asynckit](https://www.npmjs.com/package/asynckit)
+- [aws-sign2](https://www.npmjs.com/package/aws-sign2)
+- [aws4](https://www.npmjs.com/package/aws4)
+- [bcrypt-pbkdf](https://www.npmjs.com/package/bcrypt-pbkdf)
+- [bluebird](https://www.npmjs.com/package/bluebird)
+- [body-parser](https://www.npmjs.com/package/body-parser)
+- [boom](https://www.npmjs.com/package/boom)
+- [bytes](https://www.npmjs.com/package/bytes)
+- [camelcase](https://www.npmjs.com/package/camelcase)
+- [caseless](https://www.npmjs.com/package/caseless)
+- [co](https://www.npmjs.com/package/co)
+- [combined-stream](https://www.npmjs.com/package/combined-stream)
+- [content-disposition](https://www.npmjs.com/package/content-disposition)
+- [content-type](https://www.npmjs.com/package/content-type)
+- [cookie](https://www.npmjs.com/package/cookie)
+- [cookie-signature](https://www.npmjs.com/package/cookie-signature)
+- [core-util-is](https://www.npmjs.com/package/core-util-is)
+- [cryptiles](https://www.npmjs.com/package/cryptiles)
+  - [boom](https://www.npmjs.com/package/boom)
+- [dashdash](https://www.npmjs.com/package/dashdash)
+- [debug](https://www.npmjs.com/package/debug)
+- [decamelize](https://www.npmjs.com/package/decamelize)
+- [delayed-stream](https://www.npmjs.com/package/delayed-stream)
+- [depd](https://www.npmjs.com/package/depd)
+- [destroy](https://www.npmjs.com/package/destroy)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [dotenv-safe](https://www.npmjs.com/package/dotenv-safe)
+- [double-ended-queue](https://www.npmjs.com/package/double-ended-queue)
+- [ecc-jsbn](https://www.npmjs.com/package/ecc-jsbn)
+- [ee-first](https://www.npmjs.com/package/ee-first)
+- [encodeurl](https://www.npmjs.com/package/encodeurl)
+- [es6-promise](https://www.npmjs.com/package/es6-promise)
+- [escape-html](https://www.npmjs.com/package/escape-html)
+- [etag](https://www.npmjs.com/package/etag)
+- [express](https://www.npmjs.com/package/express)
+- [extend](https://www.npmjs.com/package/extend)
+- [extsprintf](https://www.npmjs.com/package/extsprintf)
+- [fast-deep-equal](https://www.npmjs.com/package/fast-deep-equal)
+- [fast-json-stable-stringify](https://www.npmjs.com/package/fast-json-stable-stringify)
+- [finalhandler](https://www.npmjs.com/package/finalhandler)
+- [forever-agent](https://www.npmjs.com/package/forever-agent)
+- [form-data](https://www.npmjs.com/package/form-data)
+- [forwarded](https://www.npmjs.com/package/forwarded)
+- [fresh](https://www.npmjs.com/package/fresh)
+- [getpass](https://www.npmjs.com/package/getpass)
+- [har-schema](https://www.npmjs.com/package/har-schema)
+- [har-validator](https://www.npmjs.com/package/har-validator)
+- [hawk](https://www.npmjs.com/package/hawk)
+- [hoek](https://www.npmjs.com/package/hoek)
+- [http-errors](https://www.npmjs.com/package/http-errors)
+  - [setprototypeof](https://www.npmjs.com/package/setprototypeof)
+- [http-signature](https://www.npmjs.com/package/http-signature)
+- [iconv-lite](https://www.npmjs.com/package/iconv-lite)
+- [imdb-api](https://www.npmjs.com/package/imdb-api)
+- [inherits](https://www.npmjs.com/package/inherits)
+- [ipaddr.js](https://www.npmjs.com/package/ipaddr.js)
+- [is-typedarray](https://www.npmjs.com/package/is-typedarray)
+- [isstream](https://www.npmjs.com/package/isstream)
+- [jsbn](https://www.npmjs.com/package/jsbn)
+- [json-schema](https://www.npmjs.com/package/json-schema)
+- [json-schema-traverse](https://www.npmjs.com/package/json-schema-traverse)
+- [json-stringify-safe](https://www.npmjs.com/package/json-stringify-safe)
+- [jsprim](https://www.npmjs.com/package/jsprim)
+- [lodash](https://www.npmjs.com/package/lodash)
+- [lodash.clonedeep](https://www.npmjs.com/package/lodash.clonedeep)
+- [lodash.isarray](https://www.npmjs.com/package/lodash.isarray)
+- [lodash.mergewith](https://www.npmjs.com/package/lodash.mergewith)
+- [media-typer](https://www.npmjs.com/package/media-typer)
+- [merge-descriptors](https://www.npmjs.com/package/merge-descriptors)
+- [methods](https://www.npmjs.com/package/methods)
+- [mime](https://www.npmjs.com/package/mime)
+- [mime-db](https://www.npmjs.com/package/mime-db)
+- [mime-types](https://www.npmjs.com/package/mime-types)
+- [minimist](https://www.npmjs.com/package/minimist)
+- [ms](https://www.npmjs.com/package/ms)
+- [negotiator](https://www.npmjs.com/package/negotiator)
+- [oauth-sign](https://www.npmjs.com/package/oauth-sign)
+- [on-finished](https://www.npmjs.com/package/on-finished)
+- [optimist](https://www.npmjs.com/package/optimist)
+- [parseurl](https://www.npmjs.com/package/parseurl)
+- [path-to-regexp](https://www.npmjs.com/package/path-to-regexp)
+- [performance-now](https://www.npmjs.com/package/performance-now)
+- [proxy-addr](https://www.npmjs.com/package/proxy-addr)
+- [punycode](https://www.npmjs.com/package/punycode)
+- [qs](https://www.npmjs.com/package/qs)
+- [range-parser](https://www.npmjs.com/package/range-parser)
+- [raw-body](https://www.npmjs.com/package/raw-body)
+- [redis](https://www.npmjs.com/package/redis)
+- [redis-commands](https://www.npmjs.com/package/redis-commands)
+- [redis-parser](https://www.npmjs.com/package/redis-parser)
+- [request](https://www.npmjs.com/package/request)
+- [request-promise](https://www.npmjs.com/package/request-promise)
+- [request-promise-core](https://www.npmjs.com/package/request-promise-core)
+- [rss](https://www.npmjs.com/package/rss)
+  - [mime-db](https://www.npmjs.com/package/mime-db)
+  - [mime-types](https://www.npmjs.com/package/mime-types)
+- [safe-buffer](https://www.npmjs.com/package/safe-buffer)
+- [send](https://www.npmjs.com/package/send)
+- [serve-static](https://www.npmjs.com/package/serve-static)
+- [setprototypeof](https://www.npmjs.com/package/setprototypeof)
+- [sntp](https://www.npmjs.com/package/sntp)
+- [source-map](https://www.npmjs.com/package/source-map)
+- [sshpk](https://www.npmjs.com/package/sshpk)
+- [statuses](https://www.npmjs.com/package/statuses)
+- [stealthy-require](https://www.npmjs.com/package/stealthy-require)
+- [stringstream](https://www.npmjs.com/package/stringstream)
+- [swig](https://www.npmjs.com/package/swig)
+- [tough-cookie](https://www.npmjs.com/package/tough-cookie)
+- [tunnel-agent](https://www.npmjs.com/package/tunnel-agent)
+- [tweetnacl](https://www.npmjs.com/package/tweetnacl)
+- [type-is](https://www.npmjs.com/package/type-is)
+- [uglify-js](https://www.npmjs.com/package/uglify-js)
+- [uglify-to-browserify](https://www.npmjs.com/package/uglify-to-browserify)
+- [unpipe](https://www.npmjs.com/package/unpipe)
+- [urijs](https://www.npmjs.com/package/urijs)
+- [utils-merge](https://www.npmjs.com/package/utils-merge)
+- [uuid](https://www.npmjs.com/package/uuid)
+- [vary](https://www.npmjs.com/package/vary)
+- [verror](https://www.npmjs.com/package/verror)
+- [window-size](https://www.npmjs.com/package/window-size)
+- [wordwrap](https://www.npmjs.com/package/wordwrap)
+- [xml](https://www.npmjs.com/package/xml)
+- [yargs](https://www.npmjs.com/package/yargs)
+  - [wordwrap](https://www.npmjs.com/package/wordwrap)
