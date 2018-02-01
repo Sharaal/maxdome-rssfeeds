@@ -2,7 +2,7 @@ const { AssetsQueryOptions } = require('@dnode/request-maxdome');
 const imdb = require('imdb-api');
 const RSS = require('rss');
 
-module.exports = ({ cache, imdbApiKey, imdbApiTimeout, maxdome, rssfeeds }) => [
+module.exports = ({ cache, imdb, maxdome, rssfeeds }) => [
   'get',
   [
     '/:rssfeed',
@@ -31,21 +31,8 @@ module.exports = ({ cache, imdbApiKey, imdbApiTimeout, maxdome, rssfeeds }) => [
       if (imdbApiKey) {
         assets = await Promise.all(
           assets.map(async asset => {
-            const data = await cache(`IMDB:${asset.id}`, async () => {
-              try {
-                const search = await imdb.search(
-                  { title: asset.searchTitle },
-                  { apiKey: imdbApiKey, timeout: imdbApiTimeout }
-                );
-                if (!search.results.length) {
-                  throw new Error('missing search result');
-                }
-                return await imdb.getById(search.results[0].imdbid, { apiKey: imdbApiKey, timeout: imdbApiTimeout });
-              } catch (e) {
-                return {};
-              }
-            });
-            if (data.rating && data.rating !== 'N/A') {
+            const data = await cache(`IMDB:${asset.id}`, async () => imdb(asset.searchTitle));
+            if (data.rating) {
               asset.title += ` (${data.rating})`;
             }
             return asset;
