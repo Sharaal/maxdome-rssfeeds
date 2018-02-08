@@ -4,7 +4,7 @@ module.exports = ({ imdbApiKey, imdbApiTimeout }) => async title => {
   try {
     const search = await imdb.search(
       { title: title },
-      { apiKey: imdbApiKey, timeout: imdbApiTimeout }
+      { apiKey: imdbApiKey, timeout: imdbApiTimeout.millisecond() }
     );
     if (!search.results.length) {
       throw new Error('missing search result');

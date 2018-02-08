@@ -1,3 +1,5 @@
+const duration = require('@dnode/duration');
+
 require('@dnode/env');
 require('@dnode/express')(app => {
   app.engine('handlebars', require('express-handlebars')());
@@ -9,11 +11,13 @@ require('@dnode/express')(app => {
     cache = require('@dnode/cache')(require('@dnode/redis')(process.env.REDIS_URL));
     imdb = require('./services/imdb')({
       imdbApiKey,
-      imdbApiTimeout: process.env.IMDB_API_TIMEOUT || 5000,
+      imdbApiTimeout: duration(process.env.IMDB_API_TIMEOUT || '5 second'),
     });
   }
   const maxdome = require('@dnode/request-maxdome').getRequestBuilder();
-  const rssfeeds = require('./rssfeeds')();
+  const rssfeeds = require('./rssfeeds')({
+    feedTtl: duration(process.env.FEED_TTL || '1 hour'),
+  });
 
   require('@dnode/controllers')(app, [
     require('./controllers/home')({ rssfeeds }),
