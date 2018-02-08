@@ -28,7 +28,7 @@ module.exports = ({ cache, imdb, maxdome, rssfeeds }) => [
         return !hotFrom;
       });
 
-      if (imdbApiKey) {
+      if (imdb) {
         assets = await Promise.all(
           assets.map(async asset => {
             const data = await cache(`IMDB:${asset.id}`, async () => imdb(asset.searchTitle));
