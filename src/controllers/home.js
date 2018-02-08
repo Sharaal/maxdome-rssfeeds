@@ -8,7 +8,7 @@ module.exports = ({ rssfeeds }) => [
       if (req.originalUrl !== '/') {
         url = req.originalUrl;
       }
-      res.render('home.html.twig', { host, url, rssfeeds });
+      res.render('home', { host, url, rssfeeds });
     },
   ],
 ];

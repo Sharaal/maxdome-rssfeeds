@@ -1,6 +1,7 @@
 require('@dnode/env');
 require('@dnode/express')(app => {
-  require('@dnode/swig')({ app });
+  app.engine('handlebars', require('express-handlebars')());
+  app.set('view engine', 'handlebars');
 
   let cache;
   const imdbApiKey = process.env.IMDB_API_KEY;

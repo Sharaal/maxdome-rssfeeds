@@ -20,7 +20,7 @@
     "@dnode/express": "^1.1.0",
     "@dnode/redis": "^1.0.5",
     "@dnode/request-maxdome": "^4.3.0",
-    "@dnode/swig": "^1.0.0",
+    "express-handlebars": "^3.0.0",
     "imdb-api": "^3.1.2",
     "rss": "^1.2.2"
   }

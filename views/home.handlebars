@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>maxdome-rssfeeds</title>
-  {%- for key, rssfeed in rssfeeds %}
-  <link rel="alternate" type="application/rss+xml" href="{{ url }}/{{ key }}" title="{{ rssfeed.channel.title }}" />
-  {%- endfor %}
+  {{#each rssfeeds as |rssfeed key|}}
+    <link rel="alternate" type="application/rss+xml" href="{{ url }}/{{ key }}" title="{{ rssfeed.channel.title }}" />
+  {{/each}}
   <link rel="alternate" type="application/rss+xml" href="http://blog.maxdome.de/feed" title="maxdome Blog" />
 </head>
 <body>
 <h2>maxdome RSS-Feeds</h2>
 <ul>
-  {%- for key, rssfeed in rssfeeds %}
-  <li><a href="{{ url }}/{{ key }}">{{ rssfeed.channel.title }}</a></li>
-  {%- endfor %}
+  {{#each rssfeeds as |rssfeed key|}}
+    <li><a href="{{ url }}/{{ key }}">{{ rssfeed.channel.title }}</a></li>
+  {{/each}}
   <li><a href="http://blog.maxdome.de/feed">maxdome Blog</a></li>
 </ul>
 <h2>Schritt für Schritt Anleitung mit Feedly</h2>
