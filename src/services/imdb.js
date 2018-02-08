@@ -1,3 +1,5 @@
+const imdb = require('imdb-api');
+
 module.exports = ({ imdbApiKey, imdbApiTimeout }) => async title => {
   try {
     const search = await imdb.search(
