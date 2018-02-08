@@ -1,3 +1,5 @@
+const duration = require('@dnode/duration');
+
 function rssfeed({ area, hotFrom, type }) {
   return {
     area,
@@ -10,7 +12,7 @@ function rssfeed({ area, hotFrom, type }) {
         package: 'http://www.maxdome.de',
         store: 'http://store.maxdome.de',
       }[area],
-      ttl: 10,
+      ttl: duration('10 minute'),
     },
   };
 }

@@ -1,13 +1,15 @@
 # Dependencies
 
-Directly: 10
+Directly: 11
 
-Indirectly: 163
+Indirectly: 165
 
 - [@dnode/cache](https://www.npmjs.com/package/@dnode/cache)
 - [@dnode/controllers](https://www.npmjs.com/package/@dnode/controllers)
   - [@dnode/handler](https://www.npmjs.com/package/@dnode/handler)
 - [@dnode/dependencies-badge](https://www.npmjs.com/package/@dnode/dependencies-badge)
+- [@dnode/duration](https://www.npmjs.com/package/@dnode/duration)
+  - [parse-duration](https://www.npmjs.com/package/parse-duration)
 - [@dnode/env](https://www.npmjs.com/package/@dnode/env)
   - [dotenv](https://www.npmjs.com/package/dotenv)
   - [dotenv-safe](https://www.npmjs.com/package/dotenv-safe)
