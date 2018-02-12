@@ -11,7 +11,7 @@ require('@dnode/express')(app => {
     cache = require('@dnode/cache')(require('@dnode/redis')(process.env.REDIS_URL));
     imdb = require('./services/imdb')({
       imdbApiKey,
-      imdbApiTimeout: duration(process.env.IMDB_API_TIMEOUT || '5 second'),
+      imdbApiTimeout: duration(process.env.IMDB_API_TIMEOUT || '5 seconds'),
     });
   }
   const maxdome = require('@dnode/request-maxdome').getRequestBuilder();
