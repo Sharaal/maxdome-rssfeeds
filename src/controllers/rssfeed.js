@@ -50,7 +50,7 @@ module.exports = ({ cache, imdb, maxdome, rssfeeds }) => [
         title: rssfeed.channel.title,
         feed_url: host + url,
         site_url: host,
-        ttl: rssfeed.channel.ttl.minute(),
+        ttl: rssfeed.channel.ttl.minutes(),
       });
 
       for (const asset of assets) {
