@@ -13,10 +13,10 @@
     "postinstall": "dnode-dependencies-badge"
   },
   "dependencies": {
-    "@dnode/cache": "^2.1.0",
+    "@dnode/cache": "^2.2.1",
     "@dnode/controllers": "^1.0.5",
     "@dnode/dependencies-badge": "^1.6.2",
-    "@dnode/duration": "^2.0.0",
+    "@dnode/duration": "^3.0.0",
     "@dnode/env": "^1.0.0",
     "@dnode/express": "^1.1.0",
     "@dnode/redis": "^1.0.5",

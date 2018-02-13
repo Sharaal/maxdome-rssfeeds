@@ -4,12 +4,12 @@ module.exports = ({ imdbApiKey, imdbApiTimeout }) => async title => {
   try {
     const search = await imdb.search(
       { title: title },
-      { apiKey: imdbApiKey, timeout: imdbApiTimeout.milliseconds() }
+      { apiKey: imdbApiKey, timeout: imdbApiTimeout.asMilliseconds() }
     );
     if (!search.results.length) {
       throw new Error('missing search result');
     }
-    const data = await imdb.getById(search.results[0].imdbid, { apiKey: imdbApiKey, timeout: imdbApiTimeout });
+    const data = await imdb.getById(search.results[0].imdbid, { apiKey: imdbApiKey, timeout: imdbApiTimeout.asMilliseconds() });
     if (data.rating === 'N/A') {
       delete data.rating;
     }
