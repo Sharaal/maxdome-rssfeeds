@@ -58,6 +58,7 @@ module.exports = ({ cache, imdb, maxdome, rssfeeds }) => [
           title: asset.title,
           description: asset.description,
           url: asset.url,
+          categories: asset.genres,
         });
       }
 
