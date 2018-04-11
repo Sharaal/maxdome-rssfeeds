@@ -59,6 +59,10 @@ module.exports = ({ cache, imdb, maxdome, rssfeeds }) => [
           description: asset.description,
           url: asset.url,
           categories: asset.genres,
+          enclosure: {
+            url: asset.getImage().url,
+            type: 'image/jpeg',
+          },
         });
       }
 
