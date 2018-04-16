@@ -11,6 +11,7 @@ module.exports = ({ feedTtl }) => {
           package: 'http://www.maxdome.de',
           store: 'http://store.maxdome.de',
         }[area],
+        image: '/img/maxdome-logo.jpg',
         ttl: feedTtl,
       },
     };

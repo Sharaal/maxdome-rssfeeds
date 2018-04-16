@@ -1,8 +1,8 @@
 # Dependencies
 
-Directly: 11
+Directly: 12
 
-Indirectly: 183
+Indirectly: 184
 
 - [@dnode/cache](https://www.npmjs.com/package/@dnode/cache) (0)
 - [@dnode/controllers](https://www.npmjs.com/package/@dnode/controllers) (1)
@@ -88,6 +88,8 @@ Indirectly: 183
         - [mime-db](https://www.npmjs.com/package/mime-db) (0)
     - [utils-merge](https://www.npmjs.com/package/utils-merge) (0)
     - [vary](https://www.npmjs.com/package/vary) (0)
+- [@dnode/middlewares](https://www.npmjs.com/package/@dnode/middlewares) (1)
+  - [@dnode/handler](https://www.npmjs.com/package/@dnode/handler) (0)
 - [@dnode/redis](https://www.npmjs.com/package/@dnode/redis) (1)
   - [ioredis](https://www.npmjs.com/package/ioredis) (23)
     - [bluebird](https://www.npmjs.com/package/bluebird) (0)

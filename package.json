@@ -19,6 +19,7 @@
     "@dnode/duration": "^3.0.0",
     "@dnode/env": "^1.0.0",
     "@dnode/express": "^1.1.0",
+    "@dnode/middlewares": "^1.1.2",
     "@dnode/redis": "^1.0.5",
     "@dnode/request-maxdome": "^4.3.0",
     "express-handlebars": "^3.0.0",

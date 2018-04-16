@@ -1,9 +1,13 @@
 const duration = require('@dnode/duration');
 
 require('@dnode/env');
-require('@dnode/express')(app => {
+require('@dnode/express')((app, express) => {
   app.engine('handlebars', require('express-handlebars')());
   app.set('view engine', 'handlebars');
+
+  require('@dnode/middlewares')(app, [
+    express.static('www'),
+  ]);
 
   let cache, imdb;
   const imdbApiKey = process.env.IMDB_API_KEY;
