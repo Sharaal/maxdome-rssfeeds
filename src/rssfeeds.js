@@ -5,8 +5,8 @@ module.exports = ({ feedTtl }) => {
       hotFrom,
       type,
       channel: {
-        title: `Neue ${{ movies: 'Filme', seasons: 'Seasons' }[type]} im ${{ package: 'Paket', store: 'Store' }[area]}` +
-          (hotFrom ? ' (Hot from the UK/US)' : ''),
+        title: `Neue ${{ movies: 'Filme', seasons: 'Staffeln' }[type]} im ${{ package: 'Paket', store: 'Store' }[area]}${hotFrom ? ' (Hot from the UK/US)' : ''}`,
+        description: `Immer up to date mit allen neuen ${{ movies: 'Filme', seasons: 'Staffeln' }[type]} im ${{ package: 'Paket', store: 'Store' }[area]}${hotFrom ? ' (Hot from the UK/US)' : ''} aus dem maxdome Angebot.`,
         link: {
           package: 'https://www.maxdome.de',
           store: 'https://store.maxdome.de',

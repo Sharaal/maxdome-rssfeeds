@@ -48,6 +48,7 @@ module.exports = ({ cache, imdb, maxdome, rssfeeds }) => [
 
       const feed = new RSS({
         title: rssfeed.channel.title,
+        description: rssfeed.channel.description,
         feed_url: 'http://' + host + url,
         image_url: 'http://' + host + rssfeed.channel.image,
         site_url: 'http://' + host,
