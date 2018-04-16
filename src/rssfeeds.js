@@ -8,8 +8,8 @@ module.exports = ({ feedTtl }) => {
         title: `Neue ${{ movies: 'Filme', seasons: 'Seasons' }[type]} im ${{ package: 'Paket', store: 'Store' }[area]}` +
           (hotFrom ? ' (Hot from the UK/US)' : ''),
         link: {
-          package: 'http://www.maxdome.de',
-          store: 'http://store.maxdome.de',
+          package: 'https://www.maxdome.de',
+          store: 'https://store.maxdome.de',
         }[area],
         image: '/img/maxdome-logo.jpg',
         ttl: feedTtl,
