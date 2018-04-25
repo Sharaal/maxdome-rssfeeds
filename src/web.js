@@ -2,7 +2,9 @@ const duration = require('@dnode/duration');
 
 require('@dnode/env');
 require('@dnode/express')((app, express) => {
-  app.engine('handlebars', require('express-handlebars')());
+  app.engine('handlebars', require('express-handlebars').create({
+    defaultLayout: 'main',
+  }).engine);
   app.set('view engine', 'handlebars');
 
   require('@dnode/middlewares')(app, [

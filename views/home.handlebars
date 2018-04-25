@@ -1,37 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>maxdome-rssfeeds</title>
-  {{#each rssfeeds as |rssfeed key|}}
-    <link rel="alternate" type="application/rss+xml" href="{{ url }}/{{ key }}" title="{{ rssfeed.channel.title }}" />
-  {{/each}}
-  <link rel="alternate" type="application/rss+xml" href="http://blog.maxdome.de/feed" title="maxdome Blog" />
-</head>
-<body>
-<h2>maxdome RSS-Feeds</h2>
-<ul>
-  {{#each rssfeeds as |rssfeed key|}}
-    <li><a href="{{ url }}/{{ key }}">{{ rssfeed.channel.title }}</a></li>
-  {{/each}}
-  <li><a href="http://blog.maxdome.de/feed">maxdome Blog</a></li>
-</ul>
-<h2>Schritt für Schritt Anleitung mit Feedly</h2>
-<h3>Browser</h3>
-<ol>
-  <li>Besuche <a href="http://feedly.com/">http://feedly.com/</a></li>
-  <li>Registriere dich und/oder melde dich an</li>
-  <li>Besuche <a href="http://feedly.com/i/spotlight/{{ host }}{{ url }}">http://feedly.com/i/spotlight/{{ host }}{{ url }}</a> oder klicke auf "Add Content" und füge "http://{{ host }}{{ url }}" ein</li>
-  <li>Wähle die RSS-Feeds bei welchen du auf dem neusten Stand sein willst</li>
-</ol>
-<h3>Smartphone</h3>
-<ol>
-  <li>Installiere "Feedly" aus dem <a href="http://itunes.apple.com/de/app/feedly.-your-rss-news-reader./id396069556">App Store</a> oder <a href="http://play.google.com/store/apps/details?id=com.devhd.feedly">Play Store</a></li>
-  <li>Registriere dich und/oder melde dich an</li>
-  <li>Klicke auf "Add website" und füge "http://{{ host }}{{ url }}" ein</li>
-  <li>Wähle die RSS-Feeds bei welchen du auf dem neusten Stand sein willst</li>
-  <li>Persönliche Empfehlung: Öffne die Einstellungen. Im "Look and Feel" Bereich ändere "Transition" zu "scroll" und "Default View" zu "List"</li>
-</ol>
-</body>
-</html>
+<div class="container">
+  <h2>maxdome RSS-Feeds</h2>
+  <ul>
+    {{#each rssfeeds as |rssfeed key|}}
+      <li><a href="{{ url }}/{{ key }}">{{ rssfeed.channel.title }}</a></li>
+    {{/each}}
+    <li><a href="http://blog.maxdome.de/feed">maxdome Blog</a></li>
+  </ul>
+  <h2>Schritt für Schritt Anleitung mit Feedly</h2>
+  <h3>Browser</h3>
+  <ol>
+    <li>Besuche <a href="http://feedly.com/">http://feedly.com/</a></li>
+    <li>Registriere dich und/oder melde dich an</li>
+    <li>Besuche <a href="http://feedly.com/i/spotlight/{{ host }}{{ url }}">http://feedly.com/i/spotlight/{{ host }}{{ url }}</a> oder klicke auf "Add Content" und füge "http://{{ host }}{{ url }}" ein</li>
+    <li>Wähle die RSS-Feeds bei welchen du auf dem neusten Stand sein willst</li>
+  </ol>
+  <h3>Smartphone</h3>
+  <ol>
+    <li>Installiere "Feedly" aus dem <a href="http://itunes.apple.com/de/app/feedly.-your-rss-news-reader./id396069556">App Store</a> oder <a href="http://play.google.com/store/apps/details?id=com.devhd.feedly">Play Store</a></li>
+    <li>Registriere dich und/oder melde dich an</li>
+    <li>Klicke auf "Add website" und füge "http://{{ host }}{{ url }}" ein</li>
+    <li>Wähle die RSS-Feeds bei welchen du auf dem neusten Stand sein willst</li>
+    <li>Persönliche Empfehlung: Öffne die Einstellungen. Im "Look and Feel" Bereich ändere "Transition" zu "scroll" und "Default View" zu "List"</li>
+  </ol>
+</div>
