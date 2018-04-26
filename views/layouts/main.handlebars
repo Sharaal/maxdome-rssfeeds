@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>maxdome-rssfeeds</title>
+  <title>maxdome RSS-Feeds</title>
   {{#if rssfeeds}}
     {{#each rssfeeds as |rssfeed key|}}
       <link rel="alternate" type="application/rss+xml" href="{{ url }}/{{ key }}" title="{{ rssfeed.channel.title }}" />
