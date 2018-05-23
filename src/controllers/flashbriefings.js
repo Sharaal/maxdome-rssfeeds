@@ -6,7 +6,7 @@ module.exports = ({ redis }) => [
   [
     '/flashbriefings',
     async (req, res) => {
-      const flashbriefings = (await redis.lrange('FLASHBRIEFINGS', 0, 100))
+      const flashbriefings = (await redis.lrange('FLASHBRIEFINGS', 0, 100) || [])
         .map(flashbriefing => JSON.parse(flashbriefing));
 
       const host = req.get('host');
