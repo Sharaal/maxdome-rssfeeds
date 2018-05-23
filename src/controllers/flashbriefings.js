@@ -20,7 +20,7 @@ module.exports = ({ redis }) => [
         feed_url: 'http://' + host + url,
         image_url: 'http://' + host + '/img/maxdome-logo.jpg',
         site_url: 'http://' + host,
-        ttl: duration('8 hours').asMinutes(),
+        ttl: duration('1 hour').asMinutes(),
       });
 
       for (const flashbriefing of flashbriefings) {
