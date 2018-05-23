@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>maxdome RSS-Feeds</title>
+  <link rel="alternate" type="application/rss+xml" href="{{ url }}/flashbriefings" title="Alexa Flashbriefings von maxdome" />
   {{#if rssfeeds}}
     {{#each rssfeeds as |rssfeed key|}}
       <link rel="alternate" type="application/rss+xml" href="{{ url }}/{{ key }}" title="{{ rssfeed.channel.title }}" />
     {{/each}}
-    <link rel="alternate" type="application/rss+xml" href="http://blog.maxdome.de/feed" title="maxdome Blog" />
   {{/if}}
+  <link rel="alternate" type="application/rss+xml" href="http://blog.maxdome.de/feed" title="maxdome Blog" />
   <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
