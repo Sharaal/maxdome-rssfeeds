@@ -1,6 +1,7 @@
 <div class="container">
   <h2>maxdome RSS-Feeds</h2>
   <ul>
+    <li><a href="{{ url }}/flashbriefings">Alexa Flashbriefings von maxdome</a></li>
     {{#each rssfeeds as |rssfeed key|}}
       <li><a href="{{ url }}/{{ key }}">{{ rssfeed.channel.title }}</a></li>
     {{/each}}
