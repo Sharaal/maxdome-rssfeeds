@@ -6,8 +6,12 @@ module.exports = ({ redis }) => [
   [
     '/flashbriefings',
     async (req, res) => {
-      const flashbriefings = (await redis.lrange('FLASHBRIEFINGS', 0, 100) || [])
-        .map(flashbriefing => JSON.parse(flashbriefing));
+      let flashbriefings = await redis.lrange('FLASHBRIEFINGS', 0, 100);
+      if (flashbriefings) {
+        flashbriefings = flashbriefings.map(flashbriefing => JSON.parse(flashbriefing));
+      } else {
+        flashbriefings = [];
+      }
 
       const host = req.get('host');
       let url = '';
