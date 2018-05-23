@@ -8,16 +8,15 @@ const maxdome = require('@dnode/request-maxdome').getRequestBuilder();
 (async () => {
   console.log('schedule started');
 
-  let latestFlashbriefing = (await redis.lrange('FLASHBRIEFINGS', 0, 0))[0];
-  if (latestFlashbriefing) {
-    latestFlashbriefing = JSON.parse(latestFlashbriefing);
-  }
+  const flashbriefings = await redis.getJSON('FLASHBRIEFINGS') || [];
+  const latestFlashbriefing = flashbriefings[0];
 
   const currentFlashbriefing = await fetch(process.env.FLASHBRIEFING_URL)
     .then(res => res.json());
 
   if (!latestFlashbriefing || latestFlashbriefing.uid !== currentFlashbriefing.uid) {
-    await redis.lpush('FLASHBRIEFINGS', JSON.stringify(currentFlashbriefing));
+    flashbriefings.unshift(currentFlashbriefing);
+    await redis.setJSON('FLASHBRIEFINGS', flashbriefings.slice(0, 100));
     console.log('added new flashbriefing: ' + currentFlashbriefing.titleText);
   }
 
