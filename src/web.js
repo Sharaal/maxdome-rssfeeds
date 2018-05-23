@@ -28,12 +28,7 @@ require('@dnode/express')((app, express) => {
 
   require('@dnode/controllers')(app, [
     require('./controllers/home')({ rssfeeds }),
-    require('./controllers/flashbriefings/get')({ redis }),
-    require('./controllers/flashbriefings/post')({
-      redis,
-      maxdome,
-      flashbriefingUrl: process.env.FLASHBRIEFING_URL,
-    }),
+    require('./controllers/flashbriefings')({ redis }),
     require('./controllers/rssfeed')({ cache, imdb, maxdome, rssfeeds }),
   ]);
 });
