@@ -7,7 +7,9 @@ module.exports = ({ redis }) => [
     '/flashbriefings',
     async (req, res) => {
       let flashbriefings = await redis.lrange('FLASHBRIEFINGS', 0, 100);
-      if (flashbriefings) {
+      console.log(flashbriefings);
+      console.log(typeof flashbriefings);
+      if (Array.isArray(flashbriefings)) {
         flashbriefings = flashbriefings.map(flashbriefing => JSON.parse(flashbriefing));
       } else {
         flashbriefings = [];
