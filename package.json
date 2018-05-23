@@ -24,6 +24,7 @@
     "@dnode/request-maxdome": "^4.3.0",
     "express-handlebars": "^3.0.0",
     "imdb-api": "^3.1.2",
+    "node-fetch": "^2.1.2",
     "rss": "^1.2.2"
   }
 }

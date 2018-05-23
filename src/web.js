@@ -11,10 +11,11 @@ require('@dnode/express')((app, express) => {
     express.static('www'),
   ]);
 
+  const redis = require('@dnode/redis')(process.env.REDIS_URL);
   let cache, imdb;
   const imdbApiKey = process.env.IMDB_API_KEY;
   if (imdbApiKey) {
-    cache = require('@dnode/cache')(require('@dnode/redis')(process.env.REDIS_URL));
+    cache = require('@dnode/cache')(redis);
     imdb = require('./services/imdb')({
       imdbApiKey,
       imdbApiTimeout: duration(process.env.IMDB_API_TIMEOUT || '5 seconds'),
@@ -27,6 +28,12 @@ require('@dnode/express')((app, express) => {
 
   require('@dnode/controllers')(app, [
     require('./controllers/home')({ rssfeeds }),
+    require('./controllers/flashbriefings/get')({ redis }),
+    require('./controllers/flashbriefings/post')({
+      redis,
+      maxdome,
+      flashbriefingUrl: process.env.FLASHBRIEFING_URL,
+    }),
     require('./controllers/rssfeed')({ cache, imdb, maxdome, rssfeeds }),
   ]);
 });
