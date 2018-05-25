@@ -25,6 +25,7 @@ module.exports = ({ redis }) => [
 
       for (const flashbriefing of flashbriefings) {
         feed.item({
+          date: new Date(flashbriefing.updateDate),
           title: flashbriefing.titleText,
           description: flashbriefing.mainText,
           url: flashbriefing.redirectionUrl,
