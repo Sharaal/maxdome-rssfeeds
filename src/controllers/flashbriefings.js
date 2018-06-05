@@ -24,12 +24,24 @@ module.exports = ({ redis }) => [
       });
 
       for (const flashbriefing of flashbriefings) {
-        feed.item({
+        const item = {
           date: new Date(flashbriefing.updateDate),
           title: flashbriefing.titleText,
           description: flashbriefing.mainText,
           url: flashbriefing.redirectionUrl,
-        });
+        };
+        const asset = flashbriefing.asset;
+        if (asset) {
+          item.categories = asset.genres;
+          item.enclosure = {
+            url: asset.image.url,
+            type: 'image/jpeg',
+          };
+        }
+        if (flashbriefing.image) {
+          item.enclosure = flashbriefing.image;
+        }
+        feed.item(item);
       }
 
       res.set('Content-Type', 'application/rss+xml');
